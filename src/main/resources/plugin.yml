@@ -1,0 +1,10 @@
+name: Medievo
+version: ${project.version}
+main: com.bgmbox.medievo.Medievo
+authors: [BGMP, BGMM, BGMO]
+description: El nuevo plugin medieval
+commands:
+  coordinates:
+    usage: /coordinates
+    description: Broadcasts your current coordinates
+    aliases: [bcoords, coord, coords]
