@@ -2,7 +2,6 @@ package com.bgmbox.medievo.EventHandlers;
 
 import com.bgmbox.medievo.Medievo;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;

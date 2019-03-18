@@ -1,6 +1,5 @@
 package com.bgmbox.medievo.Ranks;
 
-import com.bgmbox.medievo.Medievo;
 import org.bukkit.ChatColor;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -18,7 +17,7 @@ public class CreateRanksFile {
 
     public static void createRanksXMLFile() {
         try {
-            if (!new File(Medievo.instance.getDataFolder() + "/ranks.xml").exists()) {
+            if (!new File(getMedievoFolder() + "/ranks.xml").exists()) {
                 sendConsoleAlert(ChatColor.GREEN + "Ranks document not found. Creating one...");
                 generateRanksXML();
             } else {
