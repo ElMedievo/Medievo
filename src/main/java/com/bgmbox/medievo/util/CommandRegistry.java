@@ -6,5 +6,4 @@ public class CommandRegistry {
     public static void registerCommands() {
             registerCoordsCommand();
     }
-
 }
