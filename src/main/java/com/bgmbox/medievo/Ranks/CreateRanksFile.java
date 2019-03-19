@@ -10,21 +10,21 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import static com.bgmbox.medievo.util.Generic.getMedievoFolder;
-import static com.bgmbox.medievo.util.Methods.ConsoleAlert.sendConsoleAlert;
+import static com.bgmbox.medievo.util.Generic.*;
+import static com.bgmbox.medievo.util.Methods.ConsoleAlerts.sendConsoleAlert;
 
 public class CreateRanksFile {
 
     public static void createRanksXMLFile() {
         try {
             if (!new File(getMedievoFolder() + "/ranks.xml").exists()) {
-                sendConsoleAlert(ChatColor.GREEN + "Ranks document not found. Creating one...");
+                sendConsoleAlert(RANKS_FILE_NOT_FOUND);
                 generateRanksXML();
             } else {
-                sendConsoleAlert(ChatColor.GREEN + "Reading ranks document...");
+                sendConsoleAlert(RANKS_FILE_FOUND);
             }
         } catch (IOException exception) {
-            sendConsoleAlert(ChatColor.RED + "An internal error has occurred while generating ranks.xml file");
+            sendConsoleAlert(RANKS_CANNOT_CREATE);
             exception.printStackTrace();
         }
     }
