@@ -1,6 +1,5 @@
 package com.bgmbox.medievo.Ranks;
 
-import org.bukkit.ChatColor;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.Format;
@@ -10,7 +9,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import static com.bgmbox.medievo.util.Generic.*;
+import static com.bgmbox.medievo.util.Generic.RANKS_FILE_FOUND;
+import static com.bgmbox.medievo.util.Generic.RANKS_FILE_NOT_FOUND;
+import static com.bgmbox.medievo.util.Generic.RANKS_CANNOT_CREATE;
+import static com.bgmbox.medievo.util.Generic.getMedievoFolder;
 import static com.bgmbox.medievo.util.Methods.ConsoleAlerts.sendConsoleAlert;
 
 public class CreateRanksFile {
