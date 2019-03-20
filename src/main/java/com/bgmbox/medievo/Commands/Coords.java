@@ -26,7 +26,7 @@ public class Coords implements CommandExecutor {
         int y = player_location.getBlockY();
         int z = player_location.getBlockZ();
         Bukkit.broadcastMessage(
-                ChatColor.YELLOW + "" + ChatColor.BOLD + player.getDisplayName() + ChatColor.RESET + ": \n"
+                ChatColor.YELLOW + "" + ChatColor.BOLD + player.getDisplayName() + ChatColor.GRAY + ": \n"
                 + ChatColor.YELLOW + "X: " + ChatColor.GRAY + x + "\n"
                 + ChatColor.YELLOW + "Y: " + ChatColor.GRAY + y + "\n"
                 + ChatColor.YELLOW + "Z: " + ChatColor.GRAY + z

@@ -1,7 +1,8 @@
 # Sample configuration
 sql:
   host: "localhost"
-  port: "3306"
+  port: 3306
   database: "medievo"
   username: "root"
   password: "password"
+  player_data_table: "player_data"

@@ -19,7 +19,7 @@ public class Generic {
             TOO_MANY_ARGS = errorPrefix + "Too many arguments",
             TOO_FEW_ARGS = errorPrefix + "Too few arguments",
             NO_PERMISSION = errorPrefix + "You do not have permission",
-            SQL_CANNOT_CONNECT = errorPrefix + "An internal error has occurred while connecting to the SQL Database.",
+            SQL_CANNOT_CONNECT = "An internal error has occurred while connecting to the SQL Database.",
             RANKS_CANNOT_CREATE = "An internal error has occurred while generating the server ranks file";
 
     private static String successPrefix = ChatColor.GREEN + "";

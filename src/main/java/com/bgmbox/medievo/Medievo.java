@@ -38,14 +38,18 @@ public final class Medievo extends JavaPlugin {
 
     //---------- SQL Connection Logic ----------//
     private  Connection connection;
-    private  String host, database, username, password;
-    private  int port;
+    private  String host;
+    private String database;
+    private String username;
+    private String password;
+    public String player_data_table;
+    private int port;
 
-    private Connection getConnection() {
+    public Connection getConnection() {
         return connection;
     }
 
-    private void setConnection(Connection connection) {
+    public void setConnection(Connection connection) {
         this.connection = connection;
     }
 
@@ -64,6 +68,7 @@ public final class Medievo extends JavaPlugin {
         database = getConfig().getString("sql.database");
         username = getConfig().getString("sql.username");
         password = getConfig().getString("sql.password");
+        player_data_table = getConfig().getString("sql.player_data_table");
 
         synchronized (this) {
             if (getConnection() != null && !getConnection().isClosed()) {
