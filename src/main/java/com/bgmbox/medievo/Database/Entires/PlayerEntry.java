@@ -18,6 +18,7 @@ public class PlayerEntry {
          ResultSet results = statement.executeQuery();
          return results.next();
      }
+
     public static void registerPlayerInDatabase(@NotNull final UUID uuid, String name, int gold) {
         try {
             PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.player_data_table + " WHERE uuid=?");

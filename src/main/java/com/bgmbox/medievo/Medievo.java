@@ -1,5 +1,6 @@
 package com.bgmbox.medievo;
 
+import com.bgmbox.medievo.Ranks.CreateRanksData;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.Connection;
@@ -18,6 +19,12 @@ import static com.bgmbox.medievo.util.Methods.ConsoleAlerts.sendConsoleAlert;
 public final class Medievo extends JavaPlugin {
 
     public static Medievo instance;
+    private CreateRanksData configurationManager;
+
+    public void loadConfigurationManager() {
+        configurationManager = new CreateRanksData();
+        configurationManager.createRanksDataYML();
+    }
 
     @Override
     public void onEnable() {
@@ -27,6 +34,7 @@ public final class Medievo extends JavaPlugin {
         registerEvents();
 
         createRanksXMLFile();
+        loadConfigurationManager();
         connectSQLDatabase();
         logInfo("The Medieval plugin has been enabled");
     }
