@@ -1,6 +1,7 @@
 package com.bgmbox.medievo.Database.Entires;
 
 import com.bgmbox.medievo.Medievo;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,13 +12,13 @@ public class PlayerEntry {
 
      private static Medievo plugin = Medievo.getPlugin(Medievo.class);
 
-     public static boolean playerExistsInDatabase(UUID uuid) throws SQLException {
+     public static boolean playerExistsInDatabase(@NotNull UUID uuid) throws SQLException {
          PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.player_data_table + " WHERE uuid=?");
          statement.setString(1, uuid.toString());
          ResultSet results = statement.executeQuery();
          return results.next();
      }
-    public static void registerPlayerInDatabase(final UUID uuid, String name, int gold) {
+    public static void registerPlayerInDatabase(@NotNull final UUID uuid, String name, int gold) {
         try {
             PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.player_data_table + " WHERE uuid=?");
             statement.setString(1, uuid.toString());
