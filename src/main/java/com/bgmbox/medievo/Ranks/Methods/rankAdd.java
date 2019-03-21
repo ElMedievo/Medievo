@@ -5,6 +5,4 @@ public class rankAdd {
     public static void addRank(String uuid, String name, String rankName) {
 
     }
-
-
 }

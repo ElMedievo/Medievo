@@ -8,9 +8,12 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import static com.bgmbox.medievo.util.Generic.NO_CONSOLE;
 import static com.bgmbox.medievo.util.Generic.TOO_MANY_ARGS;
+import static com.bgmbox.medievo.util.Methods.ConjoinCommandArgs.buildMessageFromCommandArgs;
 
 public class Coords implements CommandExecutor {
 
@@ -20,13 +23,13 @@ public class Coords implements CommandExecutor {
         plugin = instance;
     }
 
-    private void broadcastPlayerCoords(Player player) {
+    private void broadcastPlayerCoords(Player player, @Nullable String message) {
         Location player_location = player.getLocation();
         int x = player_location.getBlockX();
         int y = player_location.getBlockY();
         int z = player_location.getBlockZ();
         Bukkit.broadcastMessage(
-                ChatColor.YELLOW + "" + ChatColor.BOLD + player.getDisplayName() + ChatColor.GRAY + ": \n"
+                ChatColor.YELLOW + "" + ChatColor.BOLD + player.getDisplayName() + ChatColor.GRAY + ": " + ChatColor.WHITE + message + "\n"
                 + ChatColor.YELLOW + "X: " + ChatColor.GRAY + x + "\n"
                 + ChatColor.YELLOW + "Y: " + ChatColor.GRAY + y + "\n"
                 + ChatColor.YELLOW + "Z: " + ChatColor.GRAY + z
@@ -36,11 +39,12 @@ public class Coords implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("coordinates") && sender instanceof Player) {
+            Player player = (Player) sender;
             if (args.length == 0) {
-                Player player = (Player) sender;
-                broadcastPlayerCoords(player);
+                broadcastPlayerCoords(player, "");
             } else {
-                sender.sendMessage(TOO_MANY_ARGS);
+                String msg = buildMessageFromCommandArgs(args, 0);
+                broadcastPlayerCoords(player, msg);
             }
         } else {
             sender.sendMessage(NO_CONSOLE);
