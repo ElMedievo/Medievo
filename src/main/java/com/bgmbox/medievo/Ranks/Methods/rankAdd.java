@@ -1,8 +1,11 @@
 package com.bgmbox.medievo.Ranks.Methods;
 
+import org.bukkit.entity.Player;
+
 public class rankAdd {
 
-    public static void addRank(String uuid, String name, String rankName) {
+    public static void addRank(Player player) {
+        String uuid = player.getUniqueId().toString();
 
     }
 }

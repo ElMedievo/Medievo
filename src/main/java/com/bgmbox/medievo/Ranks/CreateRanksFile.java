@@ -39,6 +39,7 @@ public class CreateRanksFile {
 
         Element userRank = new Element("rank");
         userRank.setAttribute("name", "Default");
+        userRank.setAttribute("priority", "0");
 
         Element adminRank = new Element("rank");
         Element adminPerms = new Element("permission");
@@ -46,6 +47,7 @@ public class CreateRanksFile {
         adminRank.setAttribute("staff", "true");
         adminRank.setAttribute("flair", "'6❖");
         adminRank.setAttribute("parents", "Default");
+        adminRank.setAttribute("priority", "100");
         adminRank.addContent(adminPerms);
         adminPerms.setText("minecraft.command.op");
 
