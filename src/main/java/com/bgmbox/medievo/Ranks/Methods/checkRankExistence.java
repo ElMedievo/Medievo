@@ -18,8 +18,8 @@ public class checkRankExistence {
             if (rankWasFoundInXML(rank)) {
                 return true;
             }
-        } catch (JDOMException | IOException excpetion) {
-            excpetion.printStackTrace();
+        } catch (JDOMException | IOException exception) {
+            exception.printStackTrace();
         }
         return false;
     }

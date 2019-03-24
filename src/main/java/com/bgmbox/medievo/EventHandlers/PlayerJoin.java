@@ -9,7 +9,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.util.UUID;
 
-import static com.bgmbox.medievo.Database.Entires.PlayerEntry.registerPlayerInDatabase;
+import static com.bgmbox.medievo.Database.Entires.PlayerEntry.registerPlayerInRanksDatabase;
+import static com.bgmbox.medievo.Database.Entires.PlayerEntry.registerPlayerInSQLDatabase;
 
 public class PlayerJoin implements Listener {
 
@@ -26,7 +27,8 @@ public class PlayerJoin implements Listener {
         String player_name = player.getName();
         int gold = 0;
 
-        registerPlayerInDatabase(player_uuid, player_name, gold);
+        registerPlayerInSQLDatabase(player_uuid, player_name, gold);
+        registerPlayerInRanksDatabase(player_uuid, player_name);
     }
 
     public static void registerPlayerJoinEvent() {

@@ -8,6 +8,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import static com.bgmbox.medievo.Configuration.LoadConfig.loadConfig;
+import static com.bgmbox.medievo.Ranks.CreateRanksData.getRanksData;
+import static com.bgmbox.medievo.Ranks.CreateRanksData.saveRanksData;
 import static com.bgmbox.medievo.Ranks.CreateRanksFile.createRanksXMLFile;
 import static com.bgmbox.medievo.util.CommandRegistry.registerCommands;
 import static com.bgmbox.medievo.util.EventRegistry.registerEvents;
