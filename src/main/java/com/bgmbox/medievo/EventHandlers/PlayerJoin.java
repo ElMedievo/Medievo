@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import static com.bgmbox.medievo.Database.Entires.PlayerEntry.registerPlayerInRanksDatabase;
 import static com.bgmbox.medievo.Database.Entires.PlayerEntry.registerPlayerInSQLDatabase;
+import static com.bgmbox.medievo.Ranks.Methods.rankAdd.addRank;
 
 public class PlayerJoin implements Listener {
 

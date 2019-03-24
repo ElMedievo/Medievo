@@ -8,11 +8,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import static com.bgmbox.medievo.util.Generic.NO_CONSOLE;
-import static com.bgmbox.medievo.util.Generic.TOO_MANY_ARGS;
 import static com.bgmbox.medievo.util.Methods.ConjoinCommandArgs.buildMessageFromCommandArgs;
 
 public class Coords implements CommandExecutor {
