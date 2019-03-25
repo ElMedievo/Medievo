@@ -12,7 +12,6 @@ import org.jetbrains.annotations.Nullable;
 
 import static com.bgmbox.medievo.util.Generic.NO_CONSOLE;
 import static com.bgmbox.medievo.util.Methods.ConjoinCommandArgs.buildMessageFromCommandArgs;
-import static com.bgmbox.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 
 public class Coords implements CommandExecutor {
 
