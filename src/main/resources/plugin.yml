@@ -8,3 +8,10 @@ commands:
     usage: /coordinates
     description: Broadcasts your current coordinates
     aliases: [bcoords, coord, coords]
+  rank:
+    usage: /rank
+    description: Command for managing ranks in-game
+  permissions:
+    medievo.rank:
+      description: Grants you access to the /rank command.
+      default: op

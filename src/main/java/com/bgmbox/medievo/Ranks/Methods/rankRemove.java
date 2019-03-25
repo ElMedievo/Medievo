@@ -9,7 +9,7 @@ import static com.bgmbox.medievo.Ranks.CreateRanksData.saveRanksData;
 
 public class rankRemove {
 
-    public static void removerank(Player player, String inputRank) {
+    public static void removeRank(Player player, String inputRank) {
         String uuid = player.getUniqueId().toString();
         List currentPlayerRanks = getRanksData().getList("players." + uuid + ".ranks");
         if (currentPlayerRanks.contains(inputRank)) {
