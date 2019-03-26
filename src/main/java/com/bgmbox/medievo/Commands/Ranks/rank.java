@@ -31,7 +31,7 @@ public class rank implements CommandExecutor {
                 String givenPlayerName = args[1];
                 String givenRank = args[2];
                 if (playerIsOnline(givenPlayerName)) {
-                    Player reciever = Bukkit.getServer().getPlayer(args[1]);
+                    Player receiver = Bukkit.getServer().getPlayer(args[1]);
                     if (rankExists(givenRank)) {
                         String giver;
                         if (sender instanceof Player) {
@@ -42,14 +42,14 @@ public class rank implements CommandExecutor {
                         }
                         switch (args[0]) {
                             case "add":
-                                addRank(reciever, givenRank);
+                                addRank(receiver, givenRank);
                                 sender.sendMessage(ChatColor.GREEN + "Rank successfully added");
-                                reciever.sendMessage(ChatColor.GREEN + "You have been granted the " + ChatColor.WHITE + givenRank + ChatColor.GREEN + " rank by: " + ChatColor.RESET + giver);
+                                receiver.sendMessage(ChatColor.GREEN + "You have been granted the " + ChatColor.WHITE + givenRank + ChatColor.GREEN + " rank by: " + ChatColor.RESET + giver);
                                 break;
                             case "remove":
                                 sender.sendMessage(ChatColor.RED + "Rank successfully removed");
-                                reciever.sendMessage(ChatColor.RED + "You have been demoted from " + ChatColor.WHITE + givenRank + ChatColor.RED + " by: " + ChatColor.RESET + giver);
-                                removeRank(reciever, givenRank);
+                                receiver.sendMessage(ChatColor.RED + "You have been demoted from " + ChatColor.WHITE + givenRank + ChatColor.RED + " by: " + ChatColor.RESET + giver);
+                                removeRank(receiver, givenRank);
                                 break;
                             default:
                                 sender.sendMessage(GENERIC_SYNTAX_ERROR);
