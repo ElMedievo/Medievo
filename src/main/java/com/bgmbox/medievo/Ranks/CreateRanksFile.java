@@ -45,7 +45,7 @@ public class CreateRanksFile {
         Element adminPerms = new Element("permission");
         adminRank.setAttribute("name", "Administrator");
         adminRank.setAttribute("staff", "true");
-        adminRank.setAttribute("flair", "'6❖");
+        adminRank.setAttribute("flair", "$6❖");
         adminRank.setAttribute("parents", "Default");
         adminRank.setAttribute("priority", "100");
         adminRank.addContent(adminPerms);
