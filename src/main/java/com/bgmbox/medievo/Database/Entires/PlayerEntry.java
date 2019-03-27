@@ -43,11 +43,13 @@ public class PlayerEntry {
     }
 
     public static void registerPlayerInRanksDatabase(@NotNull final UUID uuid, String name) {
-         List<String> ranksList = new ArrayList<>();
-         ranksList.add("Default");
+         if (!getRanksData().isConfigurationSection("players." + uuid)) {
+             List<String> ranksList = new ArrayList<>();
+             ranksList.add("Default");
 
-        getRanksData().set("players." + uuid.toString() + ".name", name);
-        getRanksData().set("players." + uuid.toString() + ".ranks", ranksList);
-        saveRanksData();
+             getRanksData().set("players." + uuid.toString() + ".name", name);
+             getRanksData().set("players." + uuid.toString() + ".ranks", ranksList);
+             saveRanksData();
+         }
     }
 }
