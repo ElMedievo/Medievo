@@ -1,5 +1,7 @@
 package com.bgmbox.medievo.Ranks;
 
+import com.bgmbox.medievo.Medievo;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.jdom2.Document;
@@ -42,6 +44,10 @@ public class DeliverRanks {
             int priority = Integer.parseInt(rankInXML.getAttributeValue("priority"));
             if (ranksList.contains(rankInXMLName)) {
                 flairsByPriorityArray[priority] = uncoloredFlair;
+                for (Element permissions : rankInXML.getChildren()) {
+                    String permission = permissions.getText();
+                    player.addAttachment(Medievo.instance, permission, true);
+                }
             }
         }
 
