@@ -24,17 +24,18 @@ public class PlayerEntry {
          return results.next();
      }
 
-    public static void registerPlayerInSQLDatabase(@NotNull final UUID uuid, String name, int gold) {
+    public static void registerPlayerInSQLDatabase(@NotNull final UUID uuid, String name, int gold, String defaultClan) {
         try {
             PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.player_data_table + " WHERE uuid=?");
             statement.setString(1, uuid.toString());
             ResultSet results = statement.executeQuery();
             results.next();
             if (!playerExistsInDatabase(uuid)) {
-                PreparedStatement insert = plugin.getConnection().prepareStatement("INSERT INTO " + plugin.player_data_table + " (uuid,name,gold) VALUES (?,?,?)");
+                PreparedStatement insert = plugin.getConnection().prepareStatement("INSERT INTO " + plugin.player_data_table + " (uuid,name,gold,clan) VALUES (?,?,?,?)");
                 insert.setString(1, uuid.toString());
                 insert.setString(2, name);
                 insert.setInt(3, gold);
+                insert.setString(4, defaultClan);
                 insert.executeUpdate();
             }
         } catch (SQLException exception) {

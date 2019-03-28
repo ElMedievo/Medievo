@@ -31,7 +31,7 @@ public class PlayerJoin implements Listener {
         String player_name = player.getName();
         int gold = 0;
 
-        registerPlayerInSQLDatabase(player_uuid, player_name, gold);
+        registerPlayerInSQLDatabase(player_uuid, player_name, gold, "none");
         registerPlayerInRanksDatabase(player_uuid, player_name);
         deliverRanks(player);
 
