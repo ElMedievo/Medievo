@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import static com.bgmbox.medievo.Ranks.Methods.checkRankExistence.rankExists;
 import static com.bgmbox.medievo.Ranks.Methods.rankAdd.addRank;
 import static com.bgmbox.medievo.Ranks.Methods.rankRemove.removeRank;
+import static com.bgmbox.medievo.util.Fixes.CONSOLE_PREFIX;
 import static com.bgmbox.medievo.util.Generic.*;
 import static com.bgmbox.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 

@@ -2,6 +2,7 @@ package com.bgmbox.medievo.EventHandlers;
 
 import com.bgmbox.medievo.Medievo;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +13,8 @@ import java.util.UUID;
 import static com.bgmbox.medievo.Database.Entires.PlayerEntry.registerPlayerInRanksDatabase;
 import static com.bgmbox.medievo.Database.Entires.PlayerEntry.registerPlayerInSQLDatabase;
 import static com.bgmbox.medievo.Ranks.DeliverRanks.deliverRanks;
+import static com.bgmbox.medievo.util.Fixes.JOIN_MESSAGE_PREFIX;
+import static com.bgmbox.medievo.util.Fixes.JOIN_MESSAGE_SUFFIX;
 
 public class PlayerJoin implements Listener {
 
@@ -31,6 +34,8 @@ public class PlayerJoin implements Listener {
         registerPlayerInSQLDatabase(player_uuid, player_name, gold);
         registerPlayerInRanksDatabase(player_uuid, player_name);
         deliverRanks(player);
+
+        event.setJoinMessage(JOIN_MESSAGE_PREFIX +  player.getDisplayName() + JOIN_MESSAGE_SUFFIX);
     }
 
     public static void registerPlayerJoinEvent() {

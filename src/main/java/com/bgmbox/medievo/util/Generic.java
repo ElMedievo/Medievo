@@ -13,7 +13,6 @@ public class Generic {
         return Medievo.instance.getDataFolder();
     }
 
-    public static String CONSOLE_PREFIX = ChatColor.GOLD + "❖" + ChatColor.DARK_AQUA + "Console" + ChatColor.RESET;
     public static String WARNING_ICON = ChatColor.YELLOW + "⚠ ";
 
 
