@@ -46,8 +46,7 @@ public class CreateRanksFile {
         adminRank.setAttribute("name", "Administrator");
         adminRank.setAttribute("staff", "true");
         adminRank.setAttribute("flair", "$6❖");
-        adminRank.setAttribute("parents", "Default");
-        adminRank.setAttribute("priority", "100");
+        adminRank.setAttribute("priority", "10000");
         adminRank.addContent(adminPerms);
         adminPerms.setText("minecraft.command.op");
 
