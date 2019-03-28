@@ -66,6 +66,8 @@ public class rank implements CommandExecutor {
             } else {
                 sender.sendMessage(TOO_MANY_ARGS);
             }
+        } else {
+            sender.sendMessage(NO_PERMISSION);
         }
         return true;
     }

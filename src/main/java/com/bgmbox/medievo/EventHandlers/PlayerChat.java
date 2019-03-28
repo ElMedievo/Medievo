@@ -7,11 +7,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class playerChat implements Listener {
+public class PlayerChat implements Listener {
 
     private final Medievo plugin;
 
-    private playerChat(Medievo instance) {
+    private PlayerChat(Medievo instance) {
         plugin = instance;
     }
 
@@ -24,6 +24,6 @@ public class playerChat implements Listener {
     }
 
     public static void registerPlayerChatEvent() {
-        Bukkit.getPluginManager().registerEvents(new playerChat(Medievo.instance), Medievo.instance);
+        Bukkit.getPluginManager().registerEvents(new PlayerChat(Medievo.instance), Medievo.instance);
     }
 }
