@@ -7,3 +7,4 @@ sql:
   username: "root"
   password: "password"
   player_data_table: "player_data"
+  clans_data_table: "clans_data"

@@ -52,6 +52,7 @@ public final class Medievo extends JavaPlugin {
     private String username;
     private String password;
     public String player_data_table;
+    public String clans_data_table;
     private int port;
 
     public Connection getConnection() {
@@ -78,6 +79,7 @@ public final class Medievo extends JavaPlugin {
         username = getConfig().getString("sql.username");
         password = getConfig().getString("sql.password");
         player_data_table = getConfig().getString("sql.player_data_table");
+        clans_data_table = getConfig().getString("sql.clans_data_table");
 
         synchronized (this) {
             if (getConnection() != null && !getConnection().isClosed()) {
