@@ -28,7 +28,7 @@ public class Generic {
             RANKS_DATA_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating the ranks data file",
             RANKS_DATA_CANNOT_SAVE = consoleErrorPrefix + "An internal error has occurred while saving the ranks data file",
             FEATURE_NOT_IMPLEMENTED = chatErrorPrefix + "Feature not implemented yet",
-            GENERIC_SYNTAX_ERROR = chatErrorPrefix + "Syntax Error";
+            GENERIC_SYNTAX_ERROR = chatErrorPrefix + "Syntax error";
 
     private static String successPrefix = ChatColor.GREEN + "";
     public static String
