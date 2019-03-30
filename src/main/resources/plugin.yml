@@ -10,7 +10,10 @@ commands:
     aliases: [bcoords, coord, coords]
   rank:
     usage: /rank
-    description: Command for managing ranks in-game
+    description: Command for managing ranks
+  clan:
+    usage: /clan
+    description: Command for managing clans
   permissions:
     medievo.rank:
       description: Grants you access to the /rank command.
