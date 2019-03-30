@@ -6,7 +6,6 @@ public class ConjoinCommandArgs {
         for (int i = startAtArgument; i < args.length; i++) {
             builder.append(args[i]).append(" ");
         }
-        String message = builder.toString();
-        return message;
+        return builder.toString();
     }
 }
