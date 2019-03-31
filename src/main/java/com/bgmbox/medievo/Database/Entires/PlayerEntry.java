@@ -47,10 +47,9 @@ public class PlayerEntry {
          if (!getRanksData().isConfigurationSection("players." + uuid)) {
              List<String> ranksList = new ArrayList<>();
              ranksList.add("Default");
-
-             getRanksData().set("players." + uuid.toString() + ".name", name);
              getRanksData().set("players." + uuid.toString() + ".ranks", ranksList);
-             saveRanksData();
          }
+        getRanksData().set("players." + uuid.toString() + ".name", name);
+        saveRanksData();
     }
 }
