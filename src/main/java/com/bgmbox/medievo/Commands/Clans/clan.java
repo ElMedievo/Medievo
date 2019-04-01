@@ -1,8 +1,6 @@
 package com.bgmbox.medievo.Commands.Clans;
 
 import com.bgmbox.medievo.Medievo;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,13 +22,6 @@ public class clan implements CommandExecutor {
     private clan(Medievo instance) {
         plugin = instance;
     }
-
-    // /clan
-    // /clan create {ClanName}
-
-    // /clan remove {player}
-    // /clan disband {ClanName}
-    // /clan setleader {player}
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
