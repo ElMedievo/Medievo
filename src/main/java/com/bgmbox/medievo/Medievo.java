@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import static com.bgmbox.medievo.Configuration.LoadConfig.loadConfig;
+import static com.bgmbox.medievo.Queues.CreateQueues.createQueues;
 import static com.bgmbox.medievo.Ranks.CreateRanksFile.createRanksXMLFile;
 import static com.bgmbox.medievo.util.CommandRegistry.registerCommands;
 import static com.bgmbox.medievo.util.EventRegistry.registerEvents;
@@ -37,6 +38,7 @@ public final class Medievo extends JavaPlugin {
         loadConfigurationManager();
         connectSQLDatabase();
 
+        createQueues();
         logInfo("The Medieval plugin has been enabled");
     }
 
