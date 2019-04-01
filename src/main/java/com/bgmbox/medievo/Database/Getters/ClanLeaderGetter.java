@@ -20,7 +20,7 @@ public class ClanLeaderGetter {
     }
 
     private static String lookupClanLeaderUUID(String clanName) throws SQLException {
-        PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.clans_data_table + " WHERE clan=?");
+        PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.clans_data_table + " WHERE name=?");
         statement.setString(1, clanName);
         ResultSet results = statement.executeQuery();
         results.next();
