@@ -19,11 +19,28 @@ public class ClanLeaderGetter {
         return null;
     }
 
+    public static String getClanLeaderName(String clanName) {
+        try {
+            return lookupClanLeaderName(clanName);
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return null;
+    }
+
     private static String lookupClanLeaderUUID(String clanName) throws SQLException {
         PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.clans_data_table + " WHERE name=?");
         statement.setString(1, clanName);
         ResultSet results = statement.executeQuery();
         results.next();
         return results.getString("leader_uuid");
+    }
+
+    private static String lookupClanLeaderName(String clanName) throws SQLException {
+        PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.clans_data_table + " WHERE name=?");
+        statement.setString(1, clanName);
+        ResultSet results = statement.executeQuery();
+        results.next();
+        return results.getString("leader_name");
     }
 }

@@ -8,12 +8,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.sql.SQLException;
 import java.util.UUID;
 
-import static com.bgmbox.medievo.Database.Destroys.ClanDestroy.destroyClanInSQL;
-import static com.bgmbox.medievo.Database.Entires.ClanEntry.clanExistsInSQLDatabase;
-import static com.bgmbox.medievo.Database.Entires.ClanEntry.createClanInSQLDatabase;
+import static com.bgmbox.medievo.Commands.Clans.Methods.Create.foundClanAsPlayer;
+import static com.bgmbox.medievo.Commands.Clans.Methods.Disband.destroyClanAsPlayer;
+import static com.bgmbox.medievo.Commands.Clans.Methods.Help.displayClanHelpMenu;
+import static com.bgmbox.medievo.Commands.Clans.Methods.Info.getClanInfo;
+import static com.bgmbox.medievo.Commands.Clans.Methods.Invite.createPlayerToPlayerInvite;
 import static com.bgmbox.medievo.util.Generic.*;
 
 public class clan implements CommandExecutor {
@@ -26,7 +27,7 @@ public class clan implements CommandExecutor {
 
     // /clan
     // /clan create {ClanName}
-    // /clan invite {player}
+
     // /clan remove {player}
     // /clan disband {ClanName}
     // /clan setleader {player}
@@ -35,37 +36,41 @@ public class clan implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("clan")) {
             if (sender instanceof Player) {
+                Player player = (Player) sender;
+                UUID player_uuid = player.getUniqueId();
+                String player_name = player.getName();
                 if (args.length == 2) {
-                    Player player = (Player) sender;
-                    UUID player_uuid = player.getUniqueId();
-                    String player_name = player.getName();
                     String clanName = args[1];
+                    String invited_name = args[1];
                     switch (args[0]) {
                         case "create":
-                            try {
-                                if (!clanExistsInSQLDatabase(clanName)) {
-                                    createClanInSQLDatabase(clanName, player_uuid, player_name);
-                                    sender.sendMessage(ChatColor.AQUA + clanName + ChatColor.GREEN + " was successfully founded!");
-                                    Bukkit.broadcastMessage(player.getDisplayName() + ChatColor.GREEN + " has founded the clan: " + ChatColor.AQUA + clanName);
-                                } else {
-                                    sender.sendMessage(WARNING_ICON + ChatColor.RED + "The clan " + ChatColor.AQUA + clanName + ChatColor.RED +" already exists!");
-                                }
-                            } catch (SQLException exception) {
-                                exception.printStackTrace();
-                            }
+                            foundClanAsPlayer(player, clanName);
                             break;
                         case "disband":
-                            destroyClanInSQL(clanName);
-                            Bukkit.broadcastMessage(ChatColor.AQUA + clanName + ChatColor.RED + " has fallen! Disbanded by: " + player.getDisplayName());
-                            sender.sendMessage(ChatColor.RED + "You have disbanded the " + ChatColor.AQUA + clanName + ChatColor.RED + " clan!");
+                            destroyClanAsPlayer(player, clanName);
                             break;
                         case "invite":
-
+                            createPlayerToPlayerInvite(player_name, invited_name);
+                            break;
                         default:
-                            sender.sendMessage(GENERIC_SYNTAX_ERROR);
+                            sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);
+                    }
+                } else if (args.length == 1) {
+                    switch (args[0]) {
+                        case "info":
+                            getClanInfo(player);
+                            break;
+                        case "help":
+                            displayClanHelpMenu(player);
+                            break;
+                        case "setleader":
+                            sender.sendMessage(FEATURE_NOT_IMPLEMENTED);
+                        default:
+                            sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);
+                            break;
                     }
                 } else {
-                    sender.sendMessage(GENERIC_SYNTAX_ERROR);
+                    sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);
                 }
             } else {
                 sender.sendMessage(NO_CONSOLE);
