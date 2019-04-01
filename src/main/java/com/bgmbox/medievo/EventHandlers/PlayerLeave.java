@@ -2,7 +2,6 @@ package com.bgmbox.medievo.EventHandlers;
 
 import com.bgmbox.medievo.Medievo;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -20,8 +19,8 @@ public class PlayerLeave implements Listener {
 
     @EventHandler
     public static void onPlayerDisconnect(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        event.setQuitMessage(LEAVE_MESSAGE_PREFIX + player + LEAVE_MESSAGE_SUFFIX);
+        String player_name = event.getPlayer().getDisplayName();
+        event.setQuitMessage(LEAVE_MESSAGE_PREFIX + player_name + LEAVE_MESSAGE_SUFFIX);
     }
 
     public static void registerPlayerDisconnectEvent() {
