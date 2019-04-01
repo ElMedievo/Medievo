@@ -29,6 +29,7 @@ public class Generic {
             RANKS_DATA_CANNOT_SAVE = consoleErrorPrefix + "An internal error has occurred while saving the ranks data file",
             FEATURE_NOT_IMPLEMENTED = chatErrorPrefix + "Feature not implemented yet",
             GENERIC_SYNTAX_ERROR = chatErrorPrefix + "Syntax error",
+            NO_PENDANT_INVITE = chatErrorPrefix + "You don't have any pendant clan invitation",
             CLANS_COMMAND_ERROR = "\n" + ChatColor.RED + "Try using " + ChatColor.YELLOW + "/clan help " + ChatColor.RED + "for more information.";
 
     private static String successPrefix = ChatColor.GREEN + "";

@@ -13,6 +13,7 @@ import static com.bgmbox.medievo.Commands.Clans.Methods.Disband.destroyClanAsPla
 import static com.bgmbox.medievo.Commands.Clans.Methods.Help.displayClanHelpMenu;
 import static com.bgmbox.medievo.Commands.Clans.Methods.Info.getClanInfo;
 import static com.bgmbox.medievo.Commands.Clans.Methods.Invite.createPlayerToPlayerInvite;
+import static com.bgmbox.medievo.Commands.Clans.Methods.Leave.removePlayerFromClan;
 import static com.bgmbox.medievo.util.Generic.*;
 
 public class clan implements CommandExecutor {
@@ -48,6 +49,9 @@ public class clan implements CommandExecutor {
                     }
                 } else if (args.length == 1) {
                     switch (args[0]) {
+                        case "leave":
+                            removePlayerFromClan(player);
+                            break;
                         case "info":
                             getClanInfo(player);
                             break;

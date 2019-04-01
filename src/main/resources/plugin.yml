@@ -10,11 +10,20 @@ commands:
     aliases: [bcoords, coord, coords]
   rank:
     usage: /rank
-    description: Command for managing ranks
+    description: Command for managing ranks.
   clan:
     usage: /clan
-    description: Command for managing clans
-  permissions:
-    medievo.rank:
-      description: Grants you access to the /rank command.
-      default: op
+    description: Command for managing clans.
+  test:
+    usage: /test
+    description: test
+  accept:
+    usage: /accept
+    description: Accepts a clan invitation.
+  decline:
+    usage: /decline
+    description: Declines a clan invitation.
+permissions:
+  medievo.rank:
+    description: Grants you access to the /rank command.
+    default: op

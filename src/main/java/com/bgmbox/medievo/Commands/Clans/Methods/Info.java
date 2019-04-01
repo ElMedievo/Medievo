@@ -18,16 +18,16 @@ public class Info {
         if (!Objects.requireNonNull(players_clan).equals("none")) {
             String players_clan_leader = getClanLeaderName(players_clan);
             if (!playerIsOnline(players_clan_leader, false)) {
-                player.sendMessage(ChatColor.RED + "#################### " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ####################" + "\n"
-                        + ChatColor.GRAY + "Clan name: " + ChatColor.GREEN + players_clan + "\n"
-                        + ChatColor.GRAY + "Clan leader: " + ChatColor.DARK_AQUA + players_clan_leader + "\n"
+                player.sendMessage(ChatColor.RED + "########## " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
+                        + ChatColor.GRAY + "Your clan: " + ChatColor.GREEN + players_clan + "\n"
+                        + ChatColor.GRAY + "Your leader: " + ChatColor.DARK_AQUA + players_clan_leader + "\n"
                         + ChatColor.RED + "########################################"
                 );
             } else {
                 Player leader = Bukkit.getPlayer(players_clan_leader);
-                player.sendMessage(ChatColor.RED + "#################### " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ####################" + "\n"
-                        + ChatColor.GRAY + "Clan name: " + ChatColor.GREEN + players_clan + "\n"
-                        + ChatColor.GRAY + "Clan leader: " + leader.getDisplayName() + "\n"
+                player.sendMessage(ChatColor.RED + "######### " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
+                        + ChatColor.GRAY + "Your clan: " + ChatColor.GREEN + players_clan + "\n"
+                        + ChatColor.GRAY + "Your leader: " + leader.getDisplayName() + "\n"
                         + ChatColor.RED + "########################################"
                 );
             }

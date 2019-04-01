@@ -30,7 +30,7 @@ public class Invite {
                     );
                     inviter_player.sendMessage(ChatColor.GREEN + "Invitation successfully sent to " + invited_player.getDisplayName());
                 } else {
-                    inviter_player.sendMessage(WARNING_ICON + invited_player.getDisplayName() + ChatColor.RED + " is already invited to join another clan!");
+                    inviter_player.sendMessage(WARNING_ICON + invited_player.getDisplayName() + ChatColor.RED + " is already invited to join a clan! Tell them to " + ChatColor.YELLOW + "/decline " + ChatColor.RED + "their invitation!");
                 }
             } else {
                 inviter_player.sendMessage(WARNING_ICON + invited_player.getDisplayName() + ChatColor.RED + " is already in a clan!");
