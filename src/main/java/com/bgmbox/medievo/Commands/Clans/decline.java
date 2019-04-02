@@ -8,6 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import static com.bgmbox.medievo.Queues.ClanQueueMethods.destroyPendantInvitation;
 import static com.bgmbox.medievo.Queues.ClanQueueMethods.isAlreadyBeingInvited;
 import static com.bgmbox.medievo.Queues.CreateQueues.inviteQueue;
 import static com.bgmbox.medievo.util.Generic.NO_CONSOLE;
@@ -35,7 +36,7 @@ public class decline implements CommandExecutor {
                             inviter_player.sendMessage(player.getDisplayName() + ChatColor.RED + " has declined your clan invitation!");
                         }
                         player.sendMessage(ChatColor.RED + "Invitation declined!");
-                        inviteQueue.remove(player.getName());
+                        destroyPendantInvitation(player.getName());
                     }
                 } else {
                     sender.sendMessage(TOO_MANY_ARGS);
