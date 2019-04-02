@@ -14,6 +14,7 @@ import static com.bgmbox.medievo.Commands.Clans.Methods.Help.displayClanHelpMenu
 import static com.bgmbox.medievo.Commands.Clans.Methods.Info.getClanInfo;
 import static com.bgmbox.medievo.Commands.Clans.Methods.Invite.createPlayerToPlayerInvite;
 import static com.bgmbox.medievo.Commands.Clans.Methods.Leave.removePlayerFromClan;
+import static com.bgmbox.medievo.Commands.Clans.Methods.Remove.playerRemovePlayerFromClan;
 import static com.bgmbox.medievo.util.Generic.*;
 
 public class clan implements CommandExecutor {
@@ -34,6 +35,7 @@ public class clan implements CommandExecutor {
                 if (args.length == 2) {
                     String clanName = args[1];
                     String invited_name = args[1];
+                    String removed = args[1];
                     switch (args[0]) {
                         case "create":
                             foundClanAsPlayer(player, clanName);
@@ -43,6 +45,12 @@ public class clan implements CommandExecutor {
                             break;
                         case "invite":
                             createPlayerToPlayerInvite(player_name, invited_name);
+                            break;
+                        case "setleader":
+                            sender.sendMessage(FEATURE_NOT_IMPLEMENTED);
+                            break;
+                        case "remove":
+                            playerRemovePlayerFromClan(player.getName(), removed);
                             break;
                         default:
                             sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);
@@ -58,8 +66,6 @@ public class clan implements CommandExecutor {
                         case "help":
                             displayClanHelpMenu(player);
                             break;
-                        case "setleader":
-                            sender.sendMessage(FEATURE_NOT_IMPLEMENTED);
                         default:
                             sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);
                             break;
