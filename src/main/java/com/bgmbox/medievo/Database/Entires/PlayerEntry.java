@@ -17,7 +17,7 @@ public class PlayerEntry {
 
      private static Medievo plugin = Medievo.getPlugin(Medievo.class);
 
-     private static boolean playerExistsInDatabase(@NotNull UUID uuid) throws SQLException {
+     public static boolean playerExistsInDatabase(@NotNull UUID uuid) throws SQLException {
          PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.player_data_table + " WHERE uuid=?");
          statement.setString(1, uuid.toString());
          ResultSet results = statement.executeQuery();
