@@ -1,7 +1,7 @@
 name: Medievo
 version: ${project.version}
 main: com.bgmbox.medievo.Medievo
-authors: [BGMP, BGMM, BGMO]
+authors: [BGMP, BGMM, BGem]
 description: El nuevo plugin medieval
 commands:
   coordinates:
