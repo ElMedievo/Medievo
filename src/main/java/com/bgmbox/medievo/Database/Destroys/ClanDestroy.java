@@ -3,7 +3,6 @@ package com.bgmbox.medievo.Database.Destroys;
 import com.bgmbox.medievo.Medievo;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ClanDestroy {
