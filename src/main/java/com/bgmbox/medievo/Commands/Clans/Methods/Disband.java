@@ -20,7 +20,6 @@ public class Disband {
                 String inputClanLeadersUUID = getClanLeaderUUID(clanName);
                 if (Objects.requireNonNull(inputClanLeadersUUID).equals(player.getUniqueId().toString())) {
                     destroyClanInSQL(clanName);
-                    setPlayerClan(player.getUniqueId(), "none");
                     Bukkit.broadcastMessage(ChatColor.AQUA + clanName + ChatColor.RED + " has fallen! Disbanded by: " + player.getDisplayName());
                     player.sendMessage(ChatColor.RED + "You have disbanded " + ChatColor.AQUA + clanName + ChatColor.RED + "!");
                 } else {
