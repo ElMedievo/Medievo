@@ -32,7 +32,7 @@ public class team implements CommandExecutor {
                 Player player = (Player) sender;
                 if (!Objects.requireNonNull(getPlayerClan(player.getUniqueId())).equals("none")) {
                     if (args.length == 0) {
-                        if (clanChatEnabled(player)) {
+                        if (!clanChatEnabled(player)) {
                             setPlayerChatMode(player, "clan");
                         } else {
                             sender.sendMessage(ALREADY_IN_CLAN_CHAT);

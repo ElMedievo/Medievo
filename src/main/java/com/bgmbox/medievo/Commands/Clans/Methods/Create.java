@@ -11,10 +11,15 @@ import static com.bgmbox.medievo.Database.Entires.ClanEntry.clanExistsInSQLDatab
 import static com.bgmbox.medievo.Database.Entires.ClanEntry.createClanInSQLDatabase;
 import static com.bgmbox.medievo.Database.Getters.PlayerClanGetter.getPlayerClan;
 import static com.bgmbox.medievo.Database.Setters.PlayerClanSetter.setPlayerClan;
+import static com.bgmbox.medievo.util.Generic.CLAN_NAME_TOO_LONG;
 import static com.bgmbox.medievo.util.Generic.WARNING_ICON;
 
 public class Create {
     public static void foundClanAsPlayer(Player founder, String clanName) {
+        if (clanName.toCharArray().length > 16) {
+            founder.sendMessage(CLAN_NAME_TOO_LONG);
+            return;
+        }
         try {
             String playerActualClan = getPlayerClan(founder.getUniqueId());
             if (!clanExistsInSQLDatabase(clanName)) {
