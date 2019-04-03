@@ -27,7 +27,7 @@ commands:
   team:
     usage: /team
     description: Toggles clan chat.
-    aliases: [t]
+    aliases: [t, c]
   global:
     usage: /global
     description: Toggles global chat.
