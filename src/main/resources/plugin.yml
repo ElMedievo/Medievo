@@ -36,3 +36,6 @@ permissions:
   medievo.rank:
     description: Grants you access to the /rank command.
     default: op
+  medievo.chat.admin:
+    description: Grants you access to the /admin command for chat purposes.
+    default: op
