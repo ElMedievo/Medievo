@@ -10,6 +10,7 @@ import static com.bgmbox.medievo.Database.Getters.ClanLeaderGetter.getClanLeader
 import static com.bgmbox.medievo.Database.Getters.ClanLeaderGetter.getClanLeaderUUID;
 import static com.bgmbox.medievo.Database.Getters.PlayerClanGetter.getPlayerClan;
 import static com.bgmbox.medievo.Database.Setters.PlayerClanSetter.setPlayerClan;
+import static com.bgmbox.medievo.Queues.CreateQueues.chatQueue;
 import static com.bgmbox.medievo.util.Generic.WARNING_ICON;
 import static com.bgmbox.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 
@@ -21,6 +22,7 @@ public class Leave {
                 String leader_name = getClanLeaderName(player_clan);
                 setPlayerClan(player.getUniqueId(), "none");
                 player.sendMessage(ChatColor.RED + "You have left " + ChatColor.AQUA + player_clan);
+                chatQueue.put(player.getName(), "global");
                 if (playerIsOnline(leader_name, false)) {
                     Player leader = Bukkit.getPlayer(leader_name);
                     leader.sendMessage(player.getDisplayName() + ChatColor.RED + " has left " + ChatColor.AQUA + player_clan);

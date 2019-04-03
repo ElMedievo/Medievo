@@ -11,6 +11,7 @@ import static com.bgmbox.medievo.Database.Destroys.ClanDestroy.destroyClanInSQL;
 import static com.bgmbox.medievo.Database.Entires.ClanEntry.clanExistsInSQLDatabase;
 import static com.bgmbox.medievo.Database.Getters.ClanLeaderGetter.getClanLeaderUUID;
 import static com.bgmbox.medievo.Database.Setters.PlayerClanSetter.setPlayerClan;
+import static com.bgmbox.medievo.Queues.CreateQueues.chatQueue;
 import static com.bgmbox.medievo.util.Generic.WARNING_ICON;
 
 public class Disband {
@@ -22,6 +23,7 @@ public class Disband {
                     destroyClanInSQL(clanName);
                     Bukkit.broadcastMessage(ChatColor.AQUA + clanName + ChatColor.RED + " has fallen! Disbanded by: " + player.getDisplayName());
                     player.sendMessage(ChatColor.RED + "You have disbanded " + ChatColor.AQUA + clanName + ChatColor.RED + "!");
+                    chatQueue.put(player.getName(), "global");
                 } else {
                     player.sendMessage(WARNING_ICON + ChatColor.RED + "You are not the leader of " + ChatColor.AQUA + clanName);
                 }

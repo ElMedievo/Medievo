@@ -30,7 +30,12 @@ public class Generic {
             FEATURE_NOT_IMPLEMENTED = chatErrorPrefix + "Feature not implemented yet",
             GENERIC_SYNTAX_ERROR = chatErrorPrefix + "Syntax error",
             NO_PENDANT_INVITE = chatErrorPrefix + "You don't have any pendant clan invitation",
-            CLANS_COMMAND_ERROR = "\n" + ChatColor.RED + "Try using " + ChatColor.YELLOW + "/clan help " + ChatColor.RED + "for more information.";
+            CLANS_COMMAND_ERROR = "\n" + ChatColor.RED + "Try using " + ChatColor.YELLOW + "/clan help " + ChatColor.RED + "for more information.",
+            NO_CHAT_MATCHED_QUERY = chatErrorPrefix + "No chat mode matched query",
+            NOT_IN_A_CLAN = chatErrorPrefix + "You are not in a clan",
+            ALREADY_IN_ADMIN_CHAT = chatErrorPrefix + "Your chat is already set to admin mode.",
+            ALREADY_IN_GLOBAL_CHAT = chatErrorPrefix + "Your chat is already set to global mode.",
+            ALREADY_IN_CLAN_CHAT = chatErrorPrefix  + "Your chat is already clan chat mode.";
 
     private static String successPrefix = ChatColor.GREEN + "";
     public static String
@@ -39,5 +44,8 @@ public class Generic {
             RANKS_FILE_NOT_FOUND = successPrefix + "Ranks file not found. Creating one...",
             RANKS_DATA_FILE_FOUND = successPrefix + "Successfully loaded the ranks data file.",
             RANKS_DATA_FILE_NOT_FOUND = successPrefix + "Ranks data file not found. Creating one...",
-            SQL_CONNECT_SUCCESS = successPrefix + "Connected to SQL database successfully";
+            SQL_CONNECT_SUCCESS = successPrefix + "Connected to SQL database successfully",
+            ADMIN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Admin",
+            CLAN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Clan",
+            GLOBAL_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Global";
 }

@@ -23,8 +23,6 @@ public class rank implements CommandExecutor {
         plugin = instance;
     }
 
-    // /rank add player rank
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("rank") && sender.hasPermission("medievo.rank")) {

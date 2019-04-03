@@ -7,15 +7,13 @@ import org.bukkit.entity.Player;
 import java.util.Objects;
 
 import static com.bgmbox.medievo.Database.Getters.PlayerClanGetter.getPlayerClan;
-import static com.bgmbox.medievo.Queues.ClanQueueMethods.isAlreadyBeingInvited;
+import static com.bgmbox.medievo.Queues.Methods.ClanQueue.isAlreadyBeingInvited;
 import static com.bgmbox.medievo.Queues.CreateQueues.inviteQueue;
 import static com.bgmbox.medievo.util.Generic.WARNING_ICON;
 import static com.bgmbox.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 
 public class Invite {
     public static void createPlayerToPlayerInvite(String inviter_name, String invited_name) {
-        // player_name is inviting.
-        // /clan invite {player}
         Player inviter_player = Bukkit.getPlayer(inviter_name);
         String inviters_clan = getPlayerClan(inviter_player.getUniqueId());
         if (playerIsOnline(invited_name, false)) {

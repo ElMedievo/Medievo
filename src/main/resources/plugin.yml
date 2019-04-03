@@ -20,6 +20,18 @@ commands:
   decline:
     usage: /decline
     description: Declines a clan invitation.
+  admin:
+    usage: /admin
+    description: Toggles admin chat.
+    aliases: [a]
+  team:
+    usage: /team
+    description: Toggles clan chat.
+    aliases: [t]
+  global:
+    usage: /global
+    description: Toggles global chat.
+    aliases: [g]
 permissions:
   medievo.rank:
     description: Grants you access to the /rank command.

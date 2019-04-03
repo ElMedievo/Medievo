@@ -8,8 +8,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static com.bgmbox.medievo.Queues.ClanQueueMethods.destroyPendantInvitation;
-import static com.bgmbox.medievo.Queues.ClanQueueMethods.isAlreadyBeingInvited;
+import static com.bgmbox.medievo.Queues.Methods.ClanQueue.destroyPendantInvitation;
+import static com.bgmbox.medievo.Queues.Methods.ClanQueue.isAlreadyBeingInvited;
 import static com.bgmbox.medievo.Queues.CreateQueues.inviteQueue;
 import static com.bgmbox.medievo.util.Generic.NO_CONSOLE;
 import static com.bgmbox.medievo.util.Generic.TOO_MANY_ARGS;

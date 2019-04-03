@@ -10,7 +10,7 @@ import java.util.UUID;
 
 import static com.bgmbox.medievo.Commands.Clans.Methods.Create.foundClanAsPlayer;
 import static com.bgmbox.medievo.Commands.Clans.Methods.Disband.destroyClanAsPlayer;
-import static com.bgmbox.medievo.Commands.Clans.Methods.Help.displayClanHelpMenu;
+import static com.bgmbox.medievo.Commands.Clans.Methods.Help.displayClanHelpMenuToPlayer;
 import static com.bgmbox.medievo.Commands.Clans.Methods.Info.getClanInfo;
 import static com.bgmbox.medievo.Commands.Clans.Methods.Invite.createPlayerToPlayerInvite;
 import static com.bgmbox.medievo.Commands.Clans.Methods.Leave.removePlayerFromClan;
@@ -64,7 +64,7 @@ public class clan implements CommandExecutor {
                             getClanInfo(player);
                             break;
                         case "help":
-                            displayClanHelpMenu(player);
+                            displayClanHelpMenuToPlayer(player);
                             break;
                         default:
                             sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);

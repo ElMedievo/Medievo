@@ -11,6 +11,7 @@ import static com.bgmbox.medievo.Database.Entires.PlayerEntry.playerExistsInData
 import static com.bgmbox.medievo.Database.Getters.ClanLeaderGetter.getClanLeaderName;
 import static com.bgmbox.medievo.Database.Getters.PlayerClanGetter.getPlayerClan;
 import static com.bgmbox.medievo.Database.Setters.PlayerClanSetter.setPlayerClan;
+import static com.bgmbox.medievo.Queues.CreateQueues.chatQueue;
 import static com.bgmbox.medievo.util.Generic.WARNING_ICON;
 import static com.bgmbox.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 
@@ -27,6 +28,7 @@ public class Remove {
                         setPlayerClan(removed_player.getUniqueId(), "none");
                         removed_player.sendMessage(ChatColor.RED + "You have been removed from " + ChatColor.AQUA + clan + ChatColor.RED + "!");
                         remover_player.sendMessage(ChatColor.RED + "Removed " + removed_player.getDisplayName() + ChatColor.RED + " from clan!");
+                        chatQueue.put(removed, "global");
                     } else {
                         remover_player.sendMessage(WARNING_ICON + ChatColor.RED + "You cannot perform this action.");
                     }
