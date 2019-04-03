@@ -5,7 +5,6 @@ import static com.bgmbox.medievo.Commands.Clans.clan.registerClanCommand;
 import static com.bgmbox.medievo.Commands.Clans.decline.registerDeclineCommand;
 import static com.bgmbox.medievo.Commands.Coords.registerCoordsCommand;
 import static com.bgmbox.medievo.Commands.Ranks.rank.registerRankCommand;
-import static com.bgmbox.medievo.Commands.test.registertestCommand;
 
 public class CommandRegistry {
     public static void registerCommands() {
@@ -14,7 +13,5 @@ public class CommandRegistry {
             registerClanCommand();
             registerAcceptCommand();
             registerDeclineCommand();
-
-            registertestCommand();
     }
 }

@@ -14,9 +14,6 @@ commands:
   clan:
     usage: /clan
     description: Command for managing clans.
-  test:
-    usage: /test
-    description: test
   accept:
     usage: /accept
     description: Accepts a clan invitation.
