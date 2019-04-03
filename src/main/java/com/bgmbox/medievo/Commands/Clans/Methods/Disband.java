@@ -24,7 +24,7 @@ public class Disband {
                     Bukkit.broadcastMessage(ChatColor.AQUA + clanName + ChatColor.RED + " has fallen! Disbanded by: " + player.getDisplayName());
                     player.sendMessage(ChatColor.RED + "You have disbanded " + ChatColor.AQUA + clanName + ChatColor.RED + "!");
                 } else {
-                    player.sendMessage(WARNING_ICON + ChatColor.RED + "You are not the leader of: " + ChatColor.AQUA + clanName);
+                    player.sendMessage(WARNING_ICON + ChatColor.RED + "You are not the leader of " + ChatColor.AQUA + clanName);
                 }
             } else {
                 player.sendMessage(WARNING_ICON + ChatColor.AQUA + clanName + ChatColor.RED + " doesn't exist!");
