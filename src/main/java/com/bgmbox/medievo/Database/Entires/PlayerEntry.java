@@ -24,6 +24,24 @@ public class PlayerEntry {
          return results.next();
      }
 
+     public static boolean playerNameExistsInSQLDatabase(String name) {
+         try {
+             if (lookForPlayerNameInSQLDatabase(name)) {
+                 return true;
+             }
+         } catch (SQLException exception) {
+             exception.printStackTrace();
+         }
+         return false;
+     }
+
+     private static boolean lookForPlayerNameInSQLDatabase(String name) throws SQLException {
+         PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.player_data_table + " WHERE name=?");
+         statement.setString(1, name);
+         ResultSet results = statement.executeQuery();
+         return results.next();
+     }
+
     public static void registerPlayerInSQLDatabase(@NotNull final UUID uuid, String name, int gold, String defaultClan) {
         try {
             PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT * FROM " + plugin.player_data_table + " WHERE uuid=?");

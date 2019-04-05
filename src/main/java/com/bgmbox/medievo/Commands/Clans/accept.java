@@ -35,7 +35,7 @@ public class accept implements CommandExecutor {
                     String player_name = player.getName();
                     if (isAlreadyBeingInvited(player_name)) {
                         String inviter = inviteQueue.get(player_name);
-                        if (playerIsOnline(inviter, false)) {
+                        if (playerIsOnline(inviter)) {
                             Player inviter_player = Bukkit.getPlayer(inviter);
                             String clan = getPlayerClan(inviter_player.getUniqueId());
                             setPlayerClan(player.getUniqueId(), clan);

@@ -20,7 +20,7 @@ public class Remove {
     public static void playerRemovePlayerFromClan(String remover, String removed) {
         Player remover_player = Bukkit.getPlayer(remover);
         if (!remover.equals(removed)) {
-            if (playerIsOnline(removed, false)) {
+            if (playerIsOnline(removed)) {
                 Player removed_player = Bukkit.getPlayer(removed);
                 if (inSameClan(remover_player, removed_player)) {
                     if (isClanLeader(remover_player)) {

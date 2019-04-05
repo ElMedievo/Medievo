@@ -16,7 +16,7 @@ public class Invite {
     public static void createPlayerToPlayerInvite(String inviter_name, String invited_name) {
         Player inviter_player = Bukkit.getPlayer(inviter_name);
         String inviters_clan = getPlayerClan(inviter_player.getUniqueId());
-        if (playerIsOnline(invited_name, false)) {
+        if (playerIsOnline(invited_name)) {
             Player invited_player = Bukkit.getPlayer(invited_name);
             String inviteds_clan = getPlayerClan(invited_player.getUniqueId());
             if (Objects.requireNonNull(inviteds_clan).equals("none")) {

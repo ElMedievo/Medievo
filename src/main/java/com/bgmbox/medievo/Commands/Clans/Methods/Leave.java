@@ -23,7 +23,7 @@ public class Leave {
                 setPlayerClan(player.getUniqueId(), "none");
                 player.sendMessage(ChatColor.RED + "You have left " + ChatColor.AQUA + player_clan);
                 chatQueue.put(player.getName(), "global");
-                if (playerIsOnline(leader_name, false)) {
+                if (playerIsOnline(leader_name)) {
                     Player leader = Bukkit.getPlayer(leader_name);
                     leader.sendMessage(player.getDisplayName() + ChatColor.RED + " has left " + ChatColor.AQUA + player_clan);
                 }

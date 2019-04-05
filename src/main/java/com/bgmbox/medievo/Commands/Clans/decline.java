@@ -31,7 +31,7 @@ public class decline implements CommandExecutor {
                 if (args.length == 0) {
                     if (isAlreadyBeingInvited(player.getName())) {
                         String inviter = inviteQueue.get(player.getName());
-                        if (playerIsOnline(inviter, false)) {
+                        if (playerIsOnline(inviter)) {
                             Player inviter_player = Bukkit.getPlayer(inviter);
                             inviter_player.sendMessage(player.getDisplayName() + ChatColor.RED + " has declined your clan invitation!");
                         }

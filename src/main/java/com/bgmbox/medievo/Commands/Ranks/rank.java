@@ -29,7 +29,7 @@ public class rank implements CommandExecutor {
             if (args.length == 3) {
                 String givenPlayerName = args[1];
                 String givenRank = args[2];
-                if (playerIsOnline(givenPlayerName, false)) {
+                if (playerIsOnline(givenPlayerName)) {
                     Player receiver = Bukkit.getServer().getPlayer(args[1]);
                     if (rankExists(givenRank)) {
                         String giver;

@@ -12,6 +12,7 @@ import java.util.UUID;
 
 import static com.bgmbox.medievo.Database.Entires.PlayerEntry.registerPlayerInRanksDatabase;
 import static com.bgmbox.medievo.Database.Entires.PlayerEntry.registerPlayerInSQLDatabase;
+import static com.bgmbox.medievo.Database.Setters.PlayerNameSetter.updatePlayerNameInSQL;
 import static com.bgmbox.medievo.Queues.CreateQueues.chatQueue;
 import static com.bgmbox.medievo.Ranks.DeliverRanks.deliverRanks;
 import static com.bgmbox.medievo.util.Fixes.JOIN_MESSAGE_PREFIX;
@@ -33,6 +34,7 @@ public class PlayerJoin implements Listener {
         int gold = 0;
 
         registerPlayerInSQLDatabase(player_uuid, player_name, gold, "none");
+        updatePlayerNameInSQL(player_uuid, player_name);
         registerPlayerInRanksDatabase(player_uuid, player_name);
         deliverRanks(player);
 
