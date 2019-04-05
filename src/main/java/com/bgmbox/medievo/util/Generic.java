@@ -33,9 +33,9 @@ public class Generic {
             CLANS_COMMAND_ERROR = "\n" + ChatColor.RED + "Try using " + ChatColor.YELLOW + "/clan help " + ChatColor.RED + "for more information.",
             NO_CHAT_MATCHED_QUERY = chatErrorPrefix + "No chat mode matched query",
             NOT_IN_A_CLAN = chatErrorPrefix + "You are not in a clan!",
-            ALREADY_IN_ADMIN_CHAT = chatErrorPrefix + "Your chat already is in admin mode.",
-            ALREADY_IN_GLOBAL_CHAT = chatErrorPrefix + "Your chat already is global mode.",
-            ALREADY_IN_CLAN_CHAT = chatErrorPrefix  + "Your chat already is in clan mode.",
+            ALREADY_IN_ADMIN_CHAT = chatErrorPrefix + "Your chat is already set to admin mode.",
+            ALREADY_IN_GLOBAL_CHAT = chatErrorPrefix + "Your chat is already set to global mode.",
+            ALREADY_IN_CLAN_CHAT = chatErrorPrefix  + "Your chat is already set to clan mode",
             CLAN_NAME_TOO_LONG = chatErrorPrefix + "Clan names must be under 16 characters long.";
 
     private static String successPrefix = ChatColor.GREEN + "";
