@@ -1,6 +1,7 @@
 package com.bgmbox.medievo;
 
 import com.bgmbox.medievo.Ranks.CreateRanksData;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.Connection;
@@ -30,6 +31,8 @@ public final class Medievo extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        sendConsoleAlert(ChatColor.GREEN + "-----" + " Medievo " + "-----");
+
         loadConfig();
         registerCommands();
         registerEvents();
@@ -39,7 +42,8 @@ public final class Medievo extends JavaPlugin {
         connectSQLDatabase();
 
         createQueues();
-        logInfo("The Medieval plugin has been enabled");
+
+        sendConsoleAlert(ChatColor.GREEN + "-------------------");
     }
 
     @Override
