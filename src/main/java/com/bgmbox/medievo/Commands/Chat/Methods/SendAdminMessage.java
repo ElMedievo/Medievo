@@ -12,7 +12,7 @@ public class SendAdminMessage {
         for (Player playerInstance : Bukkit.getServer().getOnlinePlayers()) {
             String colored_msg = (ChatColor.translateAlternateColorCodes ('&', msg));
             if (playerInstance.hasPermission("medievo.chat.admin")) {
-                if (sender.hasPermission("medievo.chat.colors")) {
+                if (sender.hasPermission("medievo.chat.color")) {
                     playerInstance.sendMessage(ADMIN_CHAT_PREFIX + sender.getDisplayName() + ChatColor.RESET + ": " + colored_msg);
                     return;
                 }

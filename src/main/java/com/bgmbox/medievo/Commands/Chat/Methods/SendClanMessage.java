@@ -15,7 +15,7 @@ public class SendClanMessage {
             String playerInstanceClan = getPlayerClan(playerInstance.getUniqueId());
             String colored_msg = (ChatColor.translateAlternateColorCodes ('&', msg));
             if (Objects.requireNonNull(senderClan).equals(playerInstanceClan)) {
-                if (sender.hasPermission("medievo.chat.colors")) {
+                if (sender.hasPermission("medievo.chat.color")) {
                     playerInstance.sendMessage("[" + ChatColor.AQUA + playerInstanceClan + ChatColor.RESET +  "] " + sender.getDisplayName() + ChatColor.RESET + ": " + colored_msg);
                     return;
                 }
