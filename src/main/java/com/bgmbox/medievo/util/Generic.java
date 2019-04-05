@@ -23,7 +23,7 @@ public class Generic {
             TOO_MANY_ARGS = chatErrorPrefix + "Too many arguments",
             TOO_FEW_ARGS = chatErrorPrefix + "Too few arguments",
             NO_PERMISSION = chatErrorPrefix + "You do not have permission",
-            SQL_CANNOT_CONNECT = consoleErrorPrefix + "An internal error has occurred while connecting to the SQL Database.",
+            SQL_CANNOT_CONNECT = consoleErrorPrefix + "An internal error has occurred while connecting to SQL Database.",
             RANKS_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating the server ranks file",
             RANKS_DATA_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating the ranks data file",
             RANKS_DATA_CANNOT_SAVE = consoleErrorPrefix + "An internal error has occurred while saving the ranks data file",
