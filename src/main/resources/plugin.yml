@@ -39,3 +39,6 @@ permissions:
   medievo.chat.admin:
     description: Grants you access to the /admin command for chat purposes.
     default: op
+  medievo.chat.color:
+    description: Grants you access to use colors in chat.
+    default: op
