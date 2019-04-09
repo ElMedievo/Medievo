@@ -32,6 +32,10 @@ commands:
     usage: /global
     description: Toggles global chat.
     aliases: [g]
+  reloadconfig:
+    usage: /reloadconfig
+    description: Reloads the plugin configuration file.
+    aliases: [rlconfig]
 permissions:
   medievo.rank:
     description: Grants you access to the /rank command.
@@ -41,4 +45,7 @@ permissions:
     default: op
   medievo.chat.color:
     description: Grants you access to use colors in chat.
+    default: op
+  medievo.reloadconfig:
+    description: Allows you to reload the plugin's configuration file.
     default: op

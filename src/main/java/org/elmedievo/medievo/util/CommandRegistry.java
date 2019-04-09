@@ -9,6 +9,8 @@ import org.elmedievo.medievo.Commands.Clans.decline;
 import org.elmedievo.medievo.Commands.Coords;
 import org.elmedievo.medievo.Commands.Ranks.rank;
 
+import static org.elmedievo.medievo.Commands.ReloadConfig.registerReloadConfigCommand;
+
 public class CommandRegistry {
     public static void registerCommands() {
             Coords.registerCoordsCommand();
@@ -16,6 +18,7 @@ public class CommandRegistry {
             clan.registerClanCommand();
             accept.registerAcceptCommand();
             decline.registerDeclineCommand();
+            registerReloadConfigCommand();
 
             //--- Chat Commands ---//
             admin.registerAdminCommand();

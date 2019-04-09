@@ -49,5 +49,6 @@ public class Generic {
             SQL_CONNECT_SUCCESS = successPrefix + "Connected to SQL database successfully",
             ADMIN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Admin",
             CLAN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Clan",
-            GLOBAL_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Global";
+            GLOBAL_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Global",
+            RELOADED_CONFIG = successPrefix + "Configuration reloaded successfully";
 }
