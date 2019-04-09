@@ -1,5 +1,6 @@
 # Sample configuration
-# At the moment, you'll have to create your own table. I suggest you go for "player_data" unless you wanna tweak some code thingies
+# For a complete automated database setup, have a look over at https://github.com/ElMedievo/Data/tree/master/Database
+# This database.php script helps you set everything up automatically, just run it as specified in the repository's README.md
 clans: false # Once set to true, clans will be enabled on the server.
 sql:
   host: "localhost"
