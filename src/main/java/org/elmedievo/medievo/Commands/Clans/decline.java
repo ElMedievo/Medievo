@@ -10,8 +10,10 @@ import org.bukkit.entity.Player;
 import org.elmedievo.medievo.Queues.CreateQueues;
 import org.elmedievo.medievo.Queues.Methods.ClanQueue;
 
+import static org.elmedievo.medievo.util.Generic.CLANS_NOT_ENABLED;
 import static org.elmedievo.medievo.util.Generic.NO_CONSOLE;
 import static org.elmedievo.medievo.util.Generic.TOO_MANY_ARGS;
+import static org.elmedievo.medievo.util.Methods.ClansEnabled.clansAreEnabled;
 import static org.elmedievo.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 
 public class decline implements CommandExecutor {
@@ -25,23 +27,27 @@ public class decline implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("decline")) {
-            if (sender instanceof Player) {
-                Player player = (Player) sender;
-                if (args.length == 0) {
-                    if (ClanQueue.isAlreadyBeingInvited(player.getName())) {
-                        String inviter = CreateQueues.inviteQueue.get(player.getName());
-                        if (playerIsOnline(inviter)) {
-                            Player inviter_player = Bukkit.getPlayer(inviter);
-                            inviter_player.sendMessage(player.getDisplayName() + ChatColor.RED + " has declined your clan invitation!");
+            if (clansAreEnabled()) {
+                if (sender instanceof Player) {
+                    Player player = (Player) sender;
+                    if (args.length == 0) {
+                        if (ClanQueue.isAlreadyBeingInvited(player.getName())) {
+                            String inviter = CreateQueues.inviteQueue.get(player.getName());
+                            if (playerIsOnline(inviter)) {
+                                Player inviter_player = Bukkit.getPlayer(inviter);
+                                inviter_player.sendMessage(player.getDisplayName() + ChatColor.RED + " has declined your clan invitation!");
+                            }
+                            player.sendMessage(ChatColor.RED + "Invitation declined!");
+                            ClanQueue.destroyPendantInvitation(player.getName());
                         }
-                        player.sendMessage(ChatColor.RED + "Invitation declined!");
-                        ClanQueue.destroyPendantInvitation(player.getName());
+                    } else {
+                        sender.sendMessage(TOO_MANY_ARGS);
                     }
                 } else {
-                    sender.sendMessage(TOO_MANY_ARGS);
+                    sender.sendMessage(NO_CONSOLE);
                 }
             } else {
-                sender.sendMessage(NO_CONSOLE);
+                sender.sendMessage(CLANS_NOT_ENABLED);
             }
         }
         return true;

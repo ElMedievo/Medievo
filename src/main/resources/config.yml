@@ -1,5 +1,6 @@
 # Sample configuration
 # At the moment, you'll have to create your own table. I suggest you go for "player_data" unless you wanna tweak some code thingies
+clans: false # Once set to true, clans will be enabled on the server.
 sql:
   host: "localhost"
   port: 3306
