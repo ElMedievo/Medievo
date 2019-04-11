@@ -42,10 +42,10 @@ permissions:
     default: op
   medievo.chat.admin:
     description: Grants you access to the /admin command for chat purposes.
-    default: op
+    default: false
   medievo.chat.color:
     description: Grants you access to use colors in chat.
-    default: op
+    default: false
   medievo.reloadconfig:
     description: Allows you to reload the plugin's configuration file.
     default: op
