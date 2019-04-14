@@ -14,9 +14,9 @@ public class SendAdminMessage {
             if (playerInstance.hasPermission("medievo.chat.admin")) {
                 if (sender.hasPermission("medievo.chat.color")) {
                     playerInstance.sendMessage(ADMIN_CHAT_PREFIX + sender.getDisplayName() + ChatColor.RESET + ": " + colored_msg);
-                    return;
+                } else {
+                    playerInstance.sendMessage(ADMIN_CHAT_PREFIX + sender.getDisplayName() + ChatColor.RESET + ": " + msg);
                 }
-                playerInstance.sendMessage(ADMIN_CHAT_PREFIX + sender.getDisplayName() + ChatColor.RESET + ": " + msg);
             }
         }
     }

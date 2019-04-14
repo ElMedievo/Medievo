@@ -16,9 +16,9 @@ public class SendClanMessage {
             if (Objects.requireNonNull(senderClan).equals(playerInstanceClan)) {
                 if (sender.hasPermission("medievo.chat.color")) {
                     playerInstance.sendMessage("[" + ChatColor.AQUA + playerInstanceClan + ChatColor.RESET +  "] " + sender.getDisplayName() + ChatColor.RESET + ": " + colored_msg);
-                    return;
+                } else {
+                    playerInstance.sendMessage("[" + ChatColor.AQUA + playerInstanceClan + ChatColor.RESET +  "] " + sender.getDisplayName() + ChatColor.RESET + ": " + msg);
                 }
-                playerInstance.sendMessage("[" + ChatColor.AQUA + playerInstanceClan + ChatColor.RESET +  "] " + sender.getDisplayName() + ChatColor.RESET + ": " + msg);
             }
         }
     }
