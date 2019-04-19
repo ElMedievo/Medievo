@@ -1,6 +1,7 @@
 package org.elmedievo.medievo.EventHandlers;
 
 import org.bukkit.Bukkit;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.elmedievo.medievo.Medievo;
@@ -12,6 +13,7 @@ public class WeatherChange implements Listener {
         plugin = instance;
     }
 
+    @EventHandler
     public static void onWeatherChange(WeatherChangeEvent event) {
         event.setCancelled(true);
     }
