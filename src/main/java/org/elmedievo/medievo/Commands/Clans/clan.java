@@ -9,6 +9,7 @@ import org.elmedievo.medievo.Commands.Clans.Methods.*;
 
 import java.util.UUID;
 
+import static org.elmedievo.medievo.Commands.Clans.Methods.Deposit.depositGoldIntoClan;
 import static org.elmedievo.medievo.util.Generic.*;
 import static org.elmedievo.medievo.util.Methods.ClansEnabled.clansAreEnabled;
 
@@ -61,6 +62,9 @@ public class clan implements CommandExecutor {
                                 break;
                             case "help":
                                 Help.displayClanHelpMenuToPlayer(player);
+                                break;
+                            case "deposit":
+                                depositGoldIntoClan(player);
                                 break;
                             default:
                                 sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);

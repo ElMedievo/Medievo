@@ -37,7 +37,8 @@ public class Generic {
             ALREADY_IN_GLOBAL_CHAT = chatErrorPrefix + "Your chat is already set to global mode.",
             ALREADY_IN_CLAN_CHAT = chatErrorPrefix  + "Your chat is already set to clan mode",
             CLAN_NAME_TOO_LONG = chatErrorPrefix + "Clan names must be under 16 characters long.",
-            CLANS_NOT_ENABLED = chatErrorPrefix + "Clans are not enabled.";
+            CLANS_NOT_ENABLED = chatErrorPrefix + "Clans are not enabled.",
+            CANNOT_DEPOSIT = chatErrorPrefix + "You may not deposit that material! Medieval gold only!";
 
     private static String successPrefix = ChatColor.GREEN + "";
     public static String
@@ -50,5 +51,6 @@ public class Generic {
             ADMIN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Admin",
             CLAN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Clan",
             GLOBAL_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Global",
-            RELOADED_CONFIG = successPrefix + "Configuration reloaded successfully";
+            RELOADED_CONFIG = successPrefix + "Configuration reloaded successfully",
+            DEPOSIT_SUCCESS = successPrefix + "Deposit complete";
 }

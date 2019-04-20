@@ -26,5 +26,9 @@ public class ClanDestroy {
         PreparedStatement destroy_in_clans = plugin.getConnection().prepareStatement("DELETE FROM " + plugin.clans_data_table + " WHERE name=?");
         destroy_in_clans.setString(1, name);
         destroy_in_clans.executeUpdate();
+
+        PreparedStatement destroy_in_economy = plugin.getConnection().prepareStatement("DELETE FROM " + plugin.clans_economy_data_table + " WHERE clan=?");
+        destroy_in_economy.setString(1, name);
+        destroy_in_economy.executeUpdate();
     }
 }

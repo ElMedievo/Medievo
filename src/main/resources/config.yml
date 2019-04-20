@@ -10,3 +10,4 @@ sql:
   password: "password"
   player_data_table: "player_data"
   clans_data_table: "clans_data"
+  clans_economy_data_table: "economy_data"

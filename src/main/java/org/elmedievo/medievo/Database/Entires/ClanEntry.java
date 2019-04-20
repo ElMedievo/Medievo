@@ -30,9 +30,33 @@ public class ClanEntry {
                 insert.setString(2, leader_uuid.toString());
                 insert.setString(3, leader_name);
                 insert.executeUpdate();
+                addClanToEconomyTable(name);
             }
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
     }
+
+    private static void addClanToEconomyTable(String clan) throws SQLException {
+        PreparedStatement insert = plugin.getConnection().prepareStatement(
+                "INSERT INTO " + plugin.clans_economy_data_table +
+                        " (clan,gold_ingot,gold_block,gold_sword,gold_spade,gold_pickaxe,gold_axe,gold_hoe,gold_helmet,gold_chestplate,gold_leggings,gold_boots,golden_apple,colones) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+        );
+        insert.setString(1, clan);
+        insert.setInt(2, 0);
+        insert.setInt(3, 0);
+        insert.setInt(4, 0);
+        insert.setInt(5, 0);
+        insert.setInt(6, 0);
+        insert.setInt(7, 0);
+        insert.setInt(8, 0);
+        insert.setInt(9, 0);
+        insert.setInt(10, 0);
+        insert.setInt(11, 0);
+        insert.setInt(12, 0);
+        insert.setInt(13, 0);
+        insert.setInt(14, 0);
+        insert.executeUpdate();
+    }
+
 }
