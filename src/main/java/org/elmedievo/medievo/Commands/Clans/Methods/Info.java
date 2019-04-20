@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 import static org.elmedievo.medievo.Commands.Clans.Mercantilism.Valuables.CURRENCY_SYMBOL;
+import static org.elmedievo.medievo.Commands.Clans.Methods.displayMembersList.displayClanMemberList;
 import static org.elmedievo.medievo.Database.Entires.ClanEntry.clanExistsInSQLDatabase;
 import static org.elmedievo.medievo.Database.Getters.ClanAlfonsosGetter.getClanAlfonsos;
 import static org.elmedievo.medievo.Database.Getters.ClanLeaderGetter.getClanLeaderName;
@@ -18,7 +19,6 @@ import static org.elmedievo.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 
 public class Info {
     public static void getClanInfoSelf(Player player) {
-            //TODO: Add members to information display
             String players_clan = PlayerClanGetter.getPlayerClan(player.getUniqueId());
             if (!Objects.requireNonNull(players_clan).equals("none")) {
                 String players_clan_leader = getClanLeaderName(players_clan);
@@ -27,6 +27,8 @@ public class Info {
                             + ChatColor.GRAY + "Your clan: " + ChatColor.GREEN + players_clan + "\n"
                             + ChatColor.GRAY + "Your leader: " + ChatColor.DARK_AQUA + players_clan_leader + "\n"
                             + ChatColor.GRAY + "Your clan's Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(players_clan) + "\n"
+                            + ChatColor.GRAY + "Members: " + "\n"
+                            + displayClanMemberList(players_clan) + "\n"
                             + ChatColor.RED + "##############################"
                     );
                 } else {
@@ -35,6 +37,8 @@ public class Info {
                             + ChatColor.GRAY + "Your clan: " + ChatColor.GREEN + players_clan + "\n"
                             + ChatColor.GRAY + "Your leader: " + leader.getDisplayName() + "\n"
                             + ChatColor.GRAY + "Your clan's Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(players_clan) + "\n"
+                            + ChatColor.GRAY + "Members: " + "\n"
+                            + displayClanMemberList(players_clan) + "\n"
                             + ChatColor.RED + "##############################"
                     );
                 }
@@ -52,6 +56,8 @@ public class Info {
                                 + ChatColor.GRAY + "Clan Name: " + ChatColor.GREEN + clan + "\n"
                                 + ChatColor.GRAY + "Clan Leader: " + ChatColor.DARK_AQUA + clan_leader + "\n"
                                 + ChatColor.GRAY + "Clan Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(clan) + "\n"
+                                + ChatColor.GRAY + "Members: " + "\n"
+                                + displayClanMemberList(clan) + "\n"
                                 + ChatColor.RED + "##############################"
                         );
                     } else {
@@ -60,6 +66,8 @@ public class Info {
                                 + ChatColor.GRAY + "Clan Name: " + ChatColor.GREEN + clan + "\n"
                                 + ChatColor.GRAY + "Clan Leader: " + leader.getDisplayName() + "\n"
                                 + ChatColor.GRAY + "Clan Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(clan) + "\n"
+                                + ChatColor.GRAY + "Members: " + "\n"
+                                + displayClanMemberList(clan) + "\n"
                                 + ChatColor.RED + "##############################"
                         );
                     }
