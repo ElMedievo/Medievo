@@ -38,7 +38,8 @@ public class Generic {
             ALREADY_IN_CLAN_CHAT = chatErrorPrefix  + "Your chat is already set to clan mode",
             CLAN_NAME_TOO_LONG = chatErrorPrefix + "Clan names must be under 16 characters long.",
             CLANS_NOT_ENABLED = chatErrorPrefix + "Clans are not enabled.",
-            CANNOT_DEPOSIT = chatErrorPrefix + "You may not deposit that material! Medieval gold only!";
+            CANNOT_DEPOSIT = chatErrorPrefix + "You may not deposit that material! Medieval gold only!",
+            CLAN_NOT_FOUND = chatErrorPrefix + "Clan not found.";
 
     private static String successPrefix = ChatColor.GREEN + "";
     public static String

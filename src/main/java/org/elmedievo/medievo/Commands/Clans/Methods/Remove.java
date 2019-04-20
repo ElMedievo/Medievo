@@ -16,7 +16,6 @@ import static org.elmedievo.medievo.util.Generic.WARNING_ICON;
 import static org.elmedievo.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 
 public class Remove {
-    //clan remove player
     public static void playerRemovePlayerFromClan(String remover, String removed) {
         Player remover_player = Bukkit.getPlayer(remover);
         if (!remover.equals(removed)) {

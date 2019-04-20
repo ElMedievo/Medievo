@@ -9,7 +9,15 @@ import org.elmedievo.medievo.Commands.Clans.Methods.*;
 
 import java.util.UUID;
 
+import static org.elmedievo.medievo.Commands.Clans.Methods.Create.foundClanAsPlayer;
 import static org.elmedievo.medievo.Commands.Clans.Methods.Deposit.depositGoldIntoClan;
+import static org.elmedievo.medievo.Commands.Clans.Methods.Disband.destroyClanAsPlayer;
+import static org.elmedievo.medievo.Commands.Clans.Methods.Help.displayClanHelpMenuToPlayer;
+import static org.elmedievo.medievo.Commands.Clans.Methods.Info.getClanInfoOther;
+import static org.elmedievo.medievo.Commands.Clans.Methods.Info.getClanInfoSelf;
+import static org.elmedievo.medievo.Commands.Clans.Methods.Invite.createPlayerToPlayerInvite;
+import static org.elmedievo.medievo.Commands.Clans.Methods.Leave.removePlayerFromClan;
+import static org.elmedievo.medievo.Commands.Clans.Methods.Remove.playerRemovePlayerFromClan;
 import static org.elmedievo.medievo.util.Generic.*;
 import static org.elmedievo.medievo.util.Methods.ClansEnabled.clansAreEnabled;
 
@@ -35,19 +43,22 @@ public class clan implements CommandExecutor {
                         String removed = args[1];
                         switch (args[0]) {
                             case "create":
-                                Create.foundClanAsPlayer(player, clanName);
+                                foundClanAsPlayer(player, clanName);
                                 break;
                             case "disband":
-                                Disband.destroyClanAsPlayer(player, clanName);
+                                destroyClanAsPlayer(player, clanName);
                                 break;
                             case "invite":
-                                Invite.createPlayerToPlayerInvite(player_name, invited_name);
+                                createPlayerToPlayerInvite(player_name, invited_name);
                                 break;
                             case "setleader":
                                 sender.sendMessage(FEATURE_NOT_IMPLEMENTED);
                                 break;
                             case "remove":
-                                Remove.playerRemovePlayerFromClan(player.getName(), removed);
+                                playerRemovePlayerFromClan(player.getName(), removed);
+                                break;
+                            case "info":
+                                getClanInfoOther(player, clanName);
                                 break;
                             default:
                                 sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);
@@ -55,16 +66,16 @@ public class clan implements CommandExecutor {
                     } else if (args.length == 1) {
                         switch (args[0]) {
                             case "leave":
-                                Leave.removePlayerFromClan(player);
-                                break;
-                            case "info":
-                                Info.getClanInfo(player);
+                                removePlayerFromClan(player);
                                 break;
                             case "help":
-                                Help.displayClanHelpMenuToPlayer(player);
+                                displayClanHelpMenuToPlayer(player);
                                 break;
                             case "deposit":
                                 depositGoldIntoClan(player);
+                                break;
+                            case "info":
+                                getClanInfoSelf(player);
                                 break;
                             default:
                                 sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);

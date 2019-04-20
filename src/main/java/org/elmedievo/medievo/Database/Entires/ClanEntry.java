@@ -58,5 +58,4 @@ public class ClanEntry {
         insert.setInt(14, 0);
         insert.executeUpdate();
     }
-
 }
