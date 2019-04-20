@@ -3,8 +3,9 @@ package org.elmedievo.medievo.Database.Setters;
 import org.elmedievo.medievo.Medievo;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static org.elmedievo.medievo.Database.Getters.ClanAlfonsosGetter.getClanAlfonsos;
 
 public class AddAlfonsosToClan {
 
@@ -19,11 +20,7 @@ public class AddAlfonsosToClan {
     }
 
     private static void lookUpClanAlfonsos(String clan, int alfonsosIn) throws SQLException {
-        PreparedStatement statement = plugin.getConnection().prepareStatement("SELECT alfonsos FROM " + plugin.clans_economy_data_table + " WHERE clan=?");
-        statement.setString(1, clan);
-        ResultSet results = statement.executeQuery();
-        results.next();
-        int actualAlfonsos = results.getInt("alfonsos");
+        int actualAlfonsos = getClanAlfonsos(clan);
 
         PreparedStatement insert = plugin.getConnection().prepareStatement("UPDATE " + plugin.clans_economy_data_table + " SET alfonsos=? WHERE clan=?");
         insert.setInt(1, actualAlfonsos + alfonsosIn);
