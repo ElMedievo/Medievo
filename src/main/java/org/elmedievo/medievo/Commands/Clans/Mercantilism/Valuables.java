@@ -17,7 +17,7 @@ public class Valuables {
             case GOLD_INGOT:
                 return GOLD_VALUE;
             case GOLD_BLOCK:
-                return GOLD_VALUE * 9;
+                return 9 * GOLD_VALUE;
             case GOLD_SWORD:
                 return 2 * GOLD_VALUE + STICK_VALUE;
             case GOLD_SPADE:
