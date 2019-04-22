@@ -38,6 +38,12 @@ public class Valuables {
                 return 4 * GOLD_VALUE;
             case GOLDEN_APPLE:
                 return 8 * GOLD_VALUE + APPLE_VALUE;
+            case GOLD_NUGGET:
+                return GOLD_VALUE / 9;
+            case GOLDEN_CARROT:
+                return 8 * (GOLD_VALUE / 9);
+            case GOLD_BARDING:
+                return 20 * GOLD_VALUE;
         }
         return 0;
     }

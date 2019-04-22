@@ -40,7 +40,7 @@ public class ClanEntry {
     private static void addClanToEconomyTable(String clan) throws SQLException {
         PreparedStatement insert = plugin.getConnection().prepareStatement(
                 "INSERT INTO " + plugin.clans_economy_data_table +
-                        " (clan,gold_ingot,gold_block,gold_sword,gold_spade,gold_pickaxe,gold_axe,gold_hoe,gold_helmet,gold_chestplate,gold_leggings,gold_boots,golden_apple,alfonsos) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+                        " (clan,gold_ingot,gold_nugget,golden_carrot,gold_barding,gold_block,gold_sword,gold_spade,gold_pickaxe,gold_axe,gold_hoe,gold_helmet,gold_chestplate,gold_leggings,gold_boots,golden_apple,alfonsos) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
         );
         insert.setString(1, clan);
         insert.setInt(2, 0);
@@ -56,6 +56,9 @@ public class ClanEntry {
         insert.setInt(12, 0);
         insert.setInt(13, 0);
         insert.setInt(14, 0);
+        insert.setInt(15, 0);
+        insert.setInt(16, 0);
+        insert.setInt(17, 0);
         insert.executeUpdate();
     }
 }
