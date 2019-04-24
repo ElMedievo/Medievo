@@ -10,6 +10,7 @@ import java.util.Objects;
 
 import static org.elmedievo.medievo.Commands.Clans.Mercantilism.Valuables.CURRENCY_SYMBOL;
 import static org.elmedievo.medievo.Commands.Clans.Methods.displayMembersList.displayClanMemberList;
+import static org.elmedievo.medievo.Commands.Clans.Methods.displayMembersList.getClanMembersList;
 import static org.elmedievo.medievo.Database.Entires.ClanEntry.clanExistsInSQLDatabase;
 import static org.elmedievo.medievo.Database.Getters.ClanAlfonsosGetter.getClanAlfonsos;
 import static org.elmedievo.medievo.Database.Getters.ClanLeaderGetter.getClanLeaderName;
@@ -27,7 +28,7 @@ public class Info {
                             + ChatColor.GRAY + "Your clan: " + ChatColor.GREEN + players_clan + "\n"
                             + ChatColor.GRAY + "Your leader: " + ChatColor.DARK_AQUA + players_clan_leader + "\n"
                             + ChatColor.GRAY + "Your clan's Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(players_clan) + "\n"
-                            + ChatColor.GRAY + "Members: " + "\n"
+                            + ChatColor.GRAY + "Members: " + ChatColor.WHITE + "(" + ChatColor.AQUA + getClanMembersList(players_clan).size() + ChatColor.WHITE + ")" + "\n"
                             + displayClanMemberList(players_clan) + "\n"
                             + ChatColor.RED + "##############################"
                     );
@@ -37,7 +38,7 @@ public class Info {
                             + ChatColor.GRAY + "Your clan: " + ChatColor.GREEN + players_clan + "\n"
                             + ChatColor.GRAY + "Your leader: " + leader.getDisplayName() + "\n"
                             + ChatColor.GRAY + "Your clan's Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(players_clan) + "\n"
-                            + ChatColor.GRAY + "Members: " + "\n"
+                            + ChatColor.GRAY + "Members: " + ChatColor.WHITE + "(" + ChatColor.AQUA + getClanMembersList(players_clan).size() + ChatColor.WHITE + ")" + "\n"
                             + displayClanMemberList(players_clan) + "\n"
                             + ChatColor.RED + "##############################"
                     );
