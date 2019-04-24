@@ -5,8 +5,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.elmedievo.medievo.Commands.Clans.Methods.*;
-
 import java.util.UUID;
 
 import static org.elmedievo.medievo.Commands.Clans.Methods.Create.foundClanAsPlayer;
