@@ -90,8 +90,10 @@ public final class Medievo extends JavaPlugin {
             if (getConnection() != null && !getConnection().isClosed()) {
                 return;
             }
+
             Class.forName("com.mysql.jdbc.Driver");
-            setConnection(DriverManager.getConnection("jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database, this.username, this.password));
+            String URL = "jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database + "?autoReconnect=true&useSSL=false";
+            setConnection(DriverManager.getConnection(URL, this.username, this.password));
             ConsoleAlerts.sendConsoleAlert(Generic.SQL_CONNECT_SUCCESS);
         }
     }
