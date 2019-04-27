@@ -39,7 +39,9 @@ public class Generic {
             CLAN_NAME_TOO_LONG = chatErrorPrefix + "Clan names must be under 16 characters long.",
             CLANS_NOT_ENABLED = chatErrorPrefix + "Clans are not enabled.",
             CANNOT_DEPOSIT = chatErrorPrefix + "You may not deposit that material! Medieval gold only!",
-            CLAN_NOT_FOUND = chatErrorPrefix + "Clan not found.";
+            CLAN_NOT_FOUND = chatErrorPrefix + "Clan not found.",
+            PLAYER_NOT_FOUND = chatErrorPrefix + "Player not found.",
+            INVALID_PLAYER_NAME = chatErrorPrefix + "Invalid player name";
 
     private static String successPrefix = ChatColor.GREEN + "";
     public static String

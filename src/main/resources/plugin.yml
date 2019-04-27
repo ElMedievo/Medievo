@@ -39,6 +39,9 @@ commands:
     usage: /reloadconfig
     description: Reloads the plugin configuration file.
     aliases: [rlconfig]
+  stats:
+    usage: /stats
+    description: Displays player stats.
 permissions:
   medievo.rank:
     description: Grants you access to the /rank command.

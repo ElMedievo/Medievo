@@ -11,6 +11,7 @@ import org.elmedievo.medievo.Commands.Ranks.rank;
 
 import static org.elmedievo.medievo.Commands.Clans.clans.registerClansCommand;
 import static org.elmedievo.medievo.Commands.ReloadConfig.registerReloadConfigCommand;
+import static org.elmedievo.medievo.Commands.Stats.registerStatsCommand;
 
 public class CommandRegistry {
     public static void registerCommands() {
@@ -21,6 +22,7 @@ public class CommandRegistry {
             decline.registerDeclineCommand();
             registerReloadConfigCommand();
             registerClansCommand();
+            registerStatsCommand();
 
             //--- Chat Commands ---//
             admin.registerAdminCommand();
