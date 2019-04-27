@@ -47,11 +47,14 @@ public class PlayerEntry {
             ResultSet results = statement.executeQuery();
             results.next();
             if (!playerExistsInDatabase(uuid)) {
-                PreparedStatement insert = plugin.getConnection().prepareStatement("INSERT INTO " + plugin.player_data_table + " (uuid,name,gold,clan) VALUES (?,?,?,?)");
+                PreparedStatement insert = plugin.getConnection().prepareStatement("INSERT INTO " + plugin.player_data_table + " (uuid,name,gold,clan,kills,killed,deaths) VALUES (?,?,?,?,?,?,?)");
                 insert.setString(1, uuid.toString());
                 insert.setString(2, name);
                 insert.setInt(3, gold);
                 insert.setString(4, defaultClan);
+                insert.setInt(5, 0);
+                insert.setInt(6, 0);
+                insert.setInt(7, 0);
                 insert.executeUpdate();
             }
         } catch (SQLException exception) {
