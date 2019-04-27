@@ -16,6 +16,7 @@ import static org.elmedievo.medievo.Commands.Clans.Methods.Info.getClanInfoSelf;
 import static org.elmedievo.medievo.Commands.Clans.Methods.Invite.createPlayerToPlayerInvite;
 import static org.elmedievo.medievo.Commands.Clans.Methods.Leave.removePlayerFromClan;
 import static org.elmedievo.medievo.Commands.Clans.Methods.Remove.playerRemovePlayerFromClan;
+import static org.elmedievo.medievo.Commands.Clans.Methods.displayClansList.sendClansListToPlayer;
 import static org.elmedievo.medievo.util.Generic.*;
 import static org.elmedievo.medievo.util.Methods.ClansEnabled.clansAreEnabled;
 
@@ -74,6 +75,9 @@ public class clan implements CommandExecutor {
                                 break;
                             case "info":
                                 getClanInfoSelf(player);
+                                break;
+                            case "list":
+                                sendClansListToPlayer(player);
                                 break;
                             default:
                                 sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);
