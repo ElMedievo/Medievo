@@ -41,7 +41,10 @@ public class Generic {
             CANNOT_DEPOSIT = chatErrorPrefix + "You may not deposit that material! Medieval gold only!",
             CLAN_NOT_FOUND = chatErrorPrefix + "Clan not found.",
             PLAYER_NOT_FOUND = chatErrorPrefix + "Player not found.",
-            INVALID_PLAYER_NAME = chatErrorPrefix + "Invalid player name";
+            INVALID_PLAYER_NAME = chatErrorPrefix + "Invalid player name",
+            INVALID_MATERIAL_COUNT = chatErrorPrefix + "Invalid material count",
+            NOT_ENOUGH_GOLD = chatErrorPrefix + "You don't have enough gold in your bank",
+            WITHDRAW_COMPLETE = chatErrorPrefix + "Withdraw complete";
 
     private static String successPrefix = ChatColor.GREEN + "";
     public static String

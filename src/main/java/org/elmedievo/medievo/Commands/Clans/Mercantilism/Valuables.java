@@ -8,8 +8,8 @@ public class Valuables {
     public static String CURRENCY_NAME = "Alfonso";
     public static String CURRENCY_NAME_PLURAL = "Alfonsos";
 
-    public static int valueInMarket(Material material) {
-        int GOLD_VALUE = 45;
+    public static int valueInMarket(Material material, Boolean forDeposit) {
+        int GOLD_VALUE = (forDeposit) ? 45 : -45;
         int STICK_VALUE = 10;
         int APPLE_VALUE = 15;
 

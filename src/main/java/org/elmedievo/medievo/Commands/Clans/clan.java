@@ -1,5 +1,6 @@
 package org.elmedievo.medievo.Commands.Clans;
 
+import org.bukkit.Material;
 import org.elmedievo.medievo.Medievo;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +17,9 @@ import static org.elmedievo.medievo.Commands.Clans.Methods.Info.getClanInfoSelf;
 import static org.elmedievo.medievo.Commands.Clans.Methods.Invite.createPlayerToPlayerInvite;
 import static org.elmedievo.medievo.Commands.Clans.Methods.Leave.removePlayerFromClan;
 import static org.elmedievo.medievo.Commands.Clans.Methods.Remove.playerRemovePlayerFromClan;
+import static org.elmedievo.medievo.Commands.Clans.Methods.Withdraw.withdrawGoldFromClan;
 import static org.elmedievo.medievo.Commands.Clans.Methods.displayClansList.sendClansListToPlayer;
+import static org.elmedievo.medievo.Database.Getters.PlayerClanGetter.getPlayerClan;
 import static org.elmedievo.medievo.util.Generic.*;
 import static org.elmedievo.medievo.util.Methods.ClansEnabled.clansAreEnabled;
 
@@ -36,7 +39,14 @@ public class clan implements CommandExecutor {
                     Player player = (Player) sender;
                     UUID player_uuid = player.getUniqueId();
                     String player_name = player.getName();
-                    if (args.length == 2) {
+                    if (args.length == 3) {
+                        switch (args[0]) {
+                            case "withdraw":
+                                String material = args[1].toUpperCase();
+                                withdrawGoldFromClan(player, Material.getMaterial(material), Integer.parseInt(args[2]));
+                                break;
+                        }
+                    } else if (args.length == 2) {
                         String clanName = args[1];
                         String invited_name = args[1];
                         String removed = args[1];

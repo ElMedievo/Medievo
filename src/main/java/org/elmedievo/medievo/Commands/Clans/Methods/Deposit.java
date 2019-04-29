@@ -22,13 +22,14 @@ import static org.elmedievo.medievo.util.Generic.NOT_IN_A_CLAN;
 import static org.elmedievo.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 
 public class Deposit {
+    @SuppressWarnings("deprecation")
     public static void depositGoldIntoClan(Player player) {
         String playerClan = getPlayerClan(player.getUniqueId());
         if (!Objects.requireNonNull(playerClan).equalsIgnoreCase("none")) {
             Material materialInHand = player.getInventory().getItemInMainHand().getType();
             String material = materialInHand.toString().toLowerCase();
             int materialAmount = player.getInventory().getItemInMainHand().getAmount();
-            int alfonsos = valueInMarket(materialInHand) * materialAmount;
+            int alfonsos = valueInMarket(materialInHand, true) * materialAmount;
             if (alfonsos == 0) {
                 player.sendMessage(CANNOT_DEPOSIT);
             } else {
