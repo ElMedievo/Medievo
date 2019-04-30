@@ -21,31 +21,66 @@ import static org.elmedievo.medievo.util.Generic.*;
 import static org.elmedievo.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 
 public class Withdraw {
-    public static void withdrawGoldFromClan(Player player, Material material, int amountInput) {
+
+    private static boolean amountIsValid(String amountInput) {
+        try {
+            Integer.parseInt(amountInput);
+            return true;
+        } catch (NumberFormatException exception) {
+            return false;
+        }
+    }
+
+    private static boolean materialIsValid(String materialInput) {
+        try {
+            Material material = Material.getMaterial(materialInput);
+            return material != null;
+        } catch (Exception exception) {
+            return false;
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+    public static void withdrawGoldFromClan(Player player, String materialInput, String amountInput) {
         String playerClan = getPlayerClan(player.getUniqueId());
-        int alfonsos = valueInMarket(material, false);
-        if (!Objects.requireNonNull(playerClan).equals("none")) {
-            int materialAmount = getClanMaterialAmount(playerClan, material.toString().toLowerCase());
-            if (materialAmount == 0) {
-                player.sendMessage(INVALID_MATERIAL_COUNT);
-                return;
-            } else if (amountInput < materialAmount) {
-                addAlfonsosToClan(playerClan, alfonsos * amountInput);
-                addGoldToClan(playerClan, material.toString().toLowerCase(), -amountInput);
-                List<String> clanMembers = getClanMembers(playerClan);
-                ItemStack gold = new ItemStack(material, amountInput);
-                player.getInventory().addItem(gold);
-                Objects.requireNonNull(clanMembers).forEach(member -> {
-                    if (playerIsOnline(member)) {
-                        Player member_player = Bukkit.getServer().getPlayer(member);
-                        member_player.sendMessage(member_player.getDisplayName()  + ChatColor.AQUA + " » " + WITHDRAW_COMPLETE + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + alfonsos * amountInput + " " + CURRENCY_NAME_PLURAL);
+        if (materialIsValid(materialInput)) {
+            if (amountIsValid(amountInput)) {
+                int amount = Integer.parseInt(amountInput);
+                if (amount > 0) {
+                    Material material = Material.getMaterial(materialInput);
+
+                    int alfonsos = valueInMarket(material, false);
+                    if (!Objects.requireNonNull(playerClan).equals("none")) {
+                        int materialAmount = getClanMaterialAmount(playerClan, material.toString().toLowerCase());
+                        if (materialAmount == 0) {
+                            player.sendMessage(NOT_ENOUGH_GOLD);
+                            return;
+                        } else if (amount < materialAmount) {
+                            addAlfonsosToClan(playerClan, alfonsos * amount);
+                            addGoldToClan(playerClan, material.toString().toLowerCase(), -amount);
+                            List<String> clanMembers = getClanMembers(playerClan);
+                            ItemStack gold = new ItemStack(material, amount);
+                            player.getInventory().addItem(gold);
+                            Objects.requireNonNull(clanMembers).forEach(member -> {
+                                if (playerIsOnline(member)) {
+                                    Player member_player = Bukkit.getServer().getPlayer(member);
+                                    member_player.sendMessage(member_player.getDisplayName() + ChatColor.AQUA + " » " + WITHDRAW_COMPLETE + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + alfonsos * amount + " " + CURRENCY_NAME_PLURAL);
+                                }
+                            });
+                        } else {
+                            player.sendMessage(NOT_ENOUGH_GOLD);
+                        }
+                    } else {
+                        player.sendMessage(NOT_IN_A_CLAN);
                     }
-                });
+                } else {
+                    player.sendMessage(INVALID_AMOUNT);
+                }
             } else {
-                player.sendMessage(NOT_ENOUGH_GOLD);
+                player.sendMessage(INVALID_AMOUNT);
             }
         } else {
-            player.sendMessage(NOT_IN_A_CLAN);
+            player.sendMessage(INVALID_MATERIAL_TYPE);
         }
     }
 }

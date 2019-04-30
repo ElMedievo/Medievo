@@ -43,7 +43,8 @@ public class clan implements CommandExecutor {
                         switch (args[0]) {
                             case "withdraw":
                                 String material = args[1].toUpperCase();
-                                withdrawGoldFromClan(player, Material.getMaterial(material), Integer.parseInt(args[2]));
+                                String amount = args[2];
+                                withdrawGoldFromClan(player, material, amount);
                                 break;
                         }
                     } else if (args.length == 2) {

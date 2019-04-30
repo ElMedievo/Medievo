@@ -44,7 +44,9 @@ public class Generic {
             INVALID_PLAYER_NAME = chatErrorPrefix + "Invalid player name",
             INVALID_MATERIAL_COUNT = chatErrorPrefix + "Invalid material count",
             NOT_ENOUGH_GOLD = chatErrorPrefix + "You don't have enough gold in your bank",
-            WITHDRAW_COMPLETE = chatErrorPrefix + "Withdraw complete";
+            WITHDRAW_COMPLETE = chatErrorPrefix + "Withdraw complete",
+            INVALID_AMOUNT = chatErrorPrefix + "Invalid material amount",
+            INVALID_MATERIAL_TYPE = chatErrorPrefix + "Invalid material";
 
     private static String successPrefix = ChatColor.GREEN + "";
     public static String
