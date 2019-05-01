@@ -55,7 +55,7 @@ public class Withdraw {
                         if (materialAmount == 0) {
                             player.sendMessage(NOT_ENOUGH_GOLD);
                             return;
-                        } else if (amount < materialAmount) {
+                        } else if (amount <= materialAmount) {
                             addAlfonsosToClan(playerClan, alfonsos * amount);
                             addGoldToClan(playerClan, material.toString().toLowerCase(), -amount);
                             List<String> clanMembers = getClanMembers(playerClan);
@@ -64,7 +64,7 @@ public class Withdraw {
                             Objects.requireNonNull(clanMembers).forEach(member -> {
                                 if (playerIsOnline(member)) {
                                     Player member_player = Bukkit.getServer().getPlayer(member);
-                                    member_player.sendMessage(member_player.getDisplayName() + ChatColor.AQUA + " » " + WITHDRAW_COMPLETE + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + alfonsos * amount + " " + CURRENCY_NAME_PLURAL);
+                                    member_player.sendMessage(player.getDisplayName() + ChatColor.AQUA + " » " + WITHDRAW_COMPLETE + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + alfonsos * amount + " " + CURRENCY_NAME_PLURAL);
                                 }
                             });
                         } else {

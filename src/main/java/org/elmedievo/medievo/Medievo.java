@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import static org.elmedievo.medievo.Commands.TabComplete.Resources.LoadResources.loadTabCompleteArguments;
+
 public final class Medievo extends JavaPlugin {
 
     public static Medievo instance;
@@ -32,6 +34,7 @@ public final class Medievo extends JavaPlugin {
 
         LoadConfig.loadConfig();
         CommandRegistry.registerCommands();
+        loadTabCompleteArguments();
         EventRegistry.registerEvents();
 
         CreateRanksFile.createRanksXMLFile();

@@ -41,7 +41,7 @@ public class Deposit {
                 Objects.requireNonNull(clanMembers).forEach(member -> {
                     if (playerIsOnline(member)) {
                         Player member_player = Bukkit.getServer().getPlayer(member);
-                        member_player.sendMessage(member_player.getDisplayName()  + ChatColor.AQUA + " » " + DEPOSIT_SUCCESS + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + alfonsos + " " + CURRENCY_NAME_PLURAL);
+                        member_player.sendMessage(player.getDisplayName()  + ChatColor.AQUA + " » " + DEPOSIT_SUCCESS + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + alfonsos + " " + CURRENCY_NAME_PLURAL);
                     }
                 });
             }
