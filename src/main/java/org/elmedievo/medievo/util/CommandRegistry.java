@@ -10,6 +10,7 @@ import org.elmedievo.medievo.Commands.Coords;
 import org.elmedievo.medievo.Commands.Ranks.rank;
 
 import static org.elmedievo.medievo.Commands.Clans.clans.registerClansCommand;
+import static org.elmedievo.medievo.Commands.Clans.materials.registerMaterialsCommand;
 import static org.elmedievo.medievo.Commands.ReloadConfig.registerReloadConfigCommand;
 import static org.elmedievo.medievo.Commands.Stats.registerStatsCommand;
 
@@ -23,6 +24,7 @@ public class CommandRegistry {
             registerReloadConfigCommand();
             registerClansCommand();
             registerStatsCommand();
+            registerMaterialsCommand(); // Temp command until tab completion implementation.
 
             //--- Chat Commands ---//
             admin.registerAdminCommand();

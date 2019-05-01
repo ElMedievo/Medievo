@@ -1,11 +1,12 @@
 package org.elmedievo.medievo.Commands.Clans;
 
-import org.bukkit.Material;
+import org.elmedievo.medievo.Commands.TabComplete.ClanTabComplete;
 import org.elmedievo.medievo.Medievo;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
 import java.util.UUID;
 
 import static org.elmedievo.medievo.Commands.Clans.Methods.Create.foundClanAsPlayer;
@@ -19,7 +20,6 @@ import static org.elmedievo.medievo.Commands.Clans.Methods.Leave.removePlayerFro
 import static org.elmedievo.medievo.Commands.Clans.Methods.Remove.playerRemovePlayerFromClan;
 import static org.elmedievo.medievo.Commands.Clans.Methods.Withdraw.withdrawGoldFromClan;
 import static org.elmedievo.medievo.Commands.Clans.Methods.displayClansList.sendClansListToPlayer;
-import static org.elmedievo.medievo.Database.Getters.PlayerClanGetter.getPlayerClan;
 import static org.elmedievo.medievo.util.Generic.*;
 import static org.elmedievo.medievo.util.Methods.ClansEnabled.clansAreEnabled;
 
@@ -109,5 +109,6 @@ public class clan implements CommandExecutor {
 
     public static void registerClanCommand() {
         Medievo.instance.getCommand("clan").setExecutor(new clan(Medievo.instance));
+        Medievo.instance.getCommand("clan").setTabCompleter(new ClanTabComplete(Medievo.instance));
     }
 }
