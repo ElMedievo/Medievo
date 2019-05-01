@@ -42,6 +42,9 @@ commands:
   stats:
     usage: /stats
     description: Displays player stats.
+  materials:
+    usage: /materials
+    description: Prompts a list of valid bank materials.
 permissions:
   medievo.rank:
     description: Grants you access to the /rank command.
