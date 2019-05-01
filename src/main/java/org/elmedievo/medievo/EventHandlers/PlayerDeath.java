@@ -31,7 +31,7 @@ public class PlayerDeath implements Listener {
 
         addDeathToPlayer(deadPlayerUUID);
 
-        if (killer != null) {
+        if (killer != null && killer != deadPlayer) {
             UUID killerUUID = killer.getUniqueId();
             addKillToPlayer(killerUUID);
             addKilledToPlayer(deadPlayerUUID);
