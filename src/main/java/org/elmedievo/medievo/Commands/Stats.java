@@ -8,7 +8,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.elmedievo.medievo.Medievo;
 
+import java.math.RoundingMode;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.UUID;
 
 import static org.elmedievo.medievo.Database.Entires.PlayerEntry.playerExistsInDatabase;
@@ -26,6 +28,7 @@ public class Stats implements CommandExecutor {
         plugin = instance;
     }
 
+    @SuppressWarnings("deprecation")
     private static void displayPlayerStatsToPlayer(Player playerReceiver, String statsPlayerName) {
         String playerDisplayedName = evalOnlinePlayer(statsPlayerName);
         UUID statsPlayerNameUUID = Bukkit.getOfflinePlayer(statsPlayerName).getUniqueId();
@@ -37,6 +40,9 @@ public class Stats implements CommandExecutor {
 
         try {
             if (playerExistsInDatabase(statsPlayerNameUUID)) {
+                DecimalFormat decimalFormat = new DecimalFormat("##.##");
+                decimalFormat.setRoundingMode(RoundingMode.UP);
+
                 int kills = getPlayerKills(statsPlayerNameUUID);
                 int deaths = getPlayerDeaths(statsPlayerNameUUID);
                 int killed = getPlayerKilled(statsPlayerNameUUID);
@@ -53,8 +59,8 @@ public class Stats implements CommandExecutor {
                 playerReceiver.sendMessage(ChatColor.RED + "----- " + playerDisplayedName + ChatColor.AQUA  + ChatColor.AQUA + "'s stats" + ChatColor.RED  + " -----" + "\n"
                         + ChatColor.AQUA + "Kills: " + ChatColor.GREEN + kills + "\n"
                         + ChatColor.AQUA + "Deaths: " + ChatColor.DARK_RED + deaths + "\n"
-                        + ChatColor.AQUA + "K/D: " + ChatColor.DARK_AQUA + kd + "\n"
-                        + ChatColor.AQUA + "K/K: " + ChatColor.DARK_AQUA + kk + "\n"
+                        + ChatColor.AQUA + "K/D: " + ChatColor.DARK_AQUA + decimalFormat.format(kd) + "\n"
+                        + ChatColor.AQUA + "K/K: " + ChatColor.DARK_AQUA + decimalFormat.format(kk) + "\n"
                         + ChatColor.RED + "-----------------------"
                 );
             } else {
