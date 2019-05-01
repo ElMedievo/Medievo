@@ -10,8 +10,8 @@ public class Valuables {
 
     public static int valueInMarket(Material material, Boolean forDeposit) {
         int GOLD_VALUE = (forDeposit) ? 45 : -45;
-        int STICK_VALUE = 10;
-        int APPLE_VALUE = 15;
+        int STICK_VALUE = (forDeposit) ? 10 : -10;
+        int APPLE_VALUE = (forDeposit) ? 15 : -15;
 
         switch (material) {
             case GOLD_INGOT:
