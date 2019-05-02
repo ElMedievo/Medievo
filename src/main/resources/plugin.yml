@@ -6,7 +6,7 @@ description: El nuevo plugin medieval
 commands:
   coordinates:
     usage: /coordinates
-    description: Broadcasts your current coordinates
+    description: Broadcasts your current coordinates.
     aliases: [bcoords, coord, coords]
   rank:
     usage: /rank
@@ -37,7 +37,7 @@ commands:
     aliases: [g]
   reloadconfig:
     usage: /reloadconfig
-    description: Reloads the plugin configuration file.
+    description: Reloads the plugin configuration.
     aliases: [rlconfig]
   stats:
     usage: /stats
