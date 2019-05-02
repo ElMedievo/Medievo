@@ -9,9 +9,11 @@ import org.elmedievo.medievo.Medievo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static org.elmedievo.medievo.Commands.TabComplete.Resources.ArgumentLists.ClanCommandArguments.clanArguments0;
 import static org.elmedievo.medievo.Commands.TabComplete.Resources.ArgumentLists.ClanCommandArguments.clanArguments1;
+import static org.elmedievo.medievo.Database.Getters.ClansToListGetter.getClansList;
 
 public class ClanTabComplete implements TabCompleter {
 
@@ -39,10 +41,21 @@ public class ClanTabComplete implements TabCompleter {
             } else if (args.length == 2) {
                 ArrayList<String> argumentOptions = new ArrayList<>();
                 if (args[0].equals("withdraw")) {
-                    argumentOptions.addAll(clanArguments1);
+                    for (String material : clanArguments1) {
+                        if (material.startsWith(args[1])) {
+                            argumentOptions.add(material);
+                        }
+                    }
                 } else if (args[0].equalsIgnoreCase("invite") || args[0].equalsIgnoreCase("remove")) {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                         argumentOptions.add(player.getName());
+                    }
+                } else if (args[0].equalsIgnoreCase("info")) {
+                    List<String> clans = getClansList();
+                    for (String clan : Objects.requireNonNull(clans)) {
+                        if (clan.startsWith(args[1])) {
+                            argumentOptions.add(clan);
+                        }
                     }
                 }
                 return argumentOptions;
