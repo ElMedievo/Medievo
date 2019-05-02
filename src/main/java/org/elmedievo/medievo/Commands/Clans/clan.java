@@ -70,6 +70,10 @@ public class clan implements CommandExecutor {
                             case "info":
                                 getClanInfoOther(player, clanName);
                                 break;
+                            case "withdraw":
+                                String material = args[1].toUpperCase();
+                                withdrawGoldFromClan(player, material, "1");
+                                break;
                             default:
                                 sender.sendMessage(GENERIC_SYNTAX_ERROR + CLANS_COMMAND_ERROR);
                         }
