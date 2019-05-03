@@ -1,4 +1,4 @@
-# Medievo
+# Medievo [![Build Status](https://travis-ci.com/ElMedievo/Medievo-Web.svg?branch=master)](https://travis-ci.com/ElMedievo/Medievo-Web)
 Core plugin for the medieval server.
 
 ## Installation
