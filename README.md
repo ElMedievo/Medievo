@@ -1,4 +1,4 @@
-# Medievo [![Build Status](https://travis-ci.com/ElMedievo/Medievo.svg?branch=master)](https://travis-ci.com/ElMedievo/Medievo) ![GitHub](https://img.shields.io/github/license/ElMedievo/Medievo.svg)
+# Medievo [![Build Status](https://travis-ci.com/ElMedievo/Medievo.svg?branch=master)](https://travis-ci.com/ElMedievo/Medievo) [![GitHub](https://img.shields.io/github/license/ElMedievo/Medievo.svg)](https://github.com/ElMedievo/Medievo/blob/master/LICENSE.md)
 Core plugin for the Medieval server.
 
 ## Prerequisites
