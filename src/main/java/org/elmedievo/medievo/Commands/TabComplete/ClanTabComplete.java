@@ -48,7 +48,9 @@ public class ClanTabComplete implements TabCompleter {
                     }
                 } else if (args[0].equalsIgnoreCase("invite") || args[0].equalsIgnoreCase("remove")) {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                        argumentOptions.add(player.getName());
+                        if (player.getName().startsWith(args[1])) {
+                            argumentOptions.add(player.getName());
+                        }
                     }
                 } else if (args[0].equalsIgnoreCase("info")) {
                     List<String> clans = getClansList();
