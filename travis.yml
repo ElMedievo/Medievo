@@ -1,3 +1,6 @@
-sudo: false
 language: java
-script: mvn clean verify
+jdk:
+- oraclejdk8
+before_install:
+- mvn compile -DskipTests=true -U
+install: mvn clean verify
