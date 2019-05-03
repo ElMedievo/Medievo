@@ -5,9 +5,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.elmedievo.medievo.Commands.Chat.Methods.SendGlobalMessage;
-import org.elmedievo.medievo.Queues.Methods.ChatQueue;
 
+import static org.elmedievo.medievo.Commands.Chat.Methods.SendGlobalMessage.sendMessageInGlobal;
+import static org.elmedievo.medievo.Queues.Methods.ChatQueue.globalChatEnabled;
+import static org.elmedievo.medievo.Queues.Methods.ChatQueue.setPlayerChatMode;
 import static org.elmedievo.medievo.util.Generic.ALREADY_IN_GLOBAL_CHAT;
 import static org.elmedievo.medievo.util.Generic.NO_CONSOLE;
 import static org.elmedievo.medievo.util.Methods.ConjoinCommandArgs.buildMessageFromCommandArgs;
@@ -26,14 +27,14 @@ public class global implements CommandExecutor {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
                 if (args.length == 0) {
-                    if (!ChatQueue.globalChatEnabled(player)) {
-                        ChatQueue.setPlayerChatMode(player, "global");
+                    if (!globalChatEnabled(player)) {
+                        setPlayerChatMode(player, "global");
                     } else {
                         sender.sendMessage(ALREADY_IN_GLOBAL_CHAT);
                     }
                 } else {
                     String msg = buildMessageFromCommandArgs(args, 0);
-                    SendGlobalMessage.sendMessageInGlobal(player, msg);
+                    sendMessageInGlobal(player, msg);
                 }
             } else {
                 sender.sendMessage(NO_CONSOLE);

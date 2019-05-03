@@ -5,12 +5,13 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.elmedievo.medievo.Commands.Chat.Methods.SendClanMessage;
-import org.elmedievo.medievo.Database.Getters.PlayerClanGetter;
-import org.elmedievo.medievo.Queues.Methods.ChatQueue;
 
 import java.util.Objects;
 
+import static org.elmedievo.medievo.Commands.Chat.Methods.SendClanMessage.sendMessageInClanChat;
+import static org.elmedievo.medievo.Database.Getters.PlayerClanGetter.getPlayerClan;
+import static org.elmedievo.medievo.Queues.Methods.ChatQueue.clanChatEnabled;
+import static org.elmedievo.medievo.Queues.Methods.ChatQueue.setPlayerChatMode;
 import static org.elmedievo.medievo.util.Generic.ALREADY_IN_CLAN_CHAT;
 import static org.elmedievo.medievo.util.Generic.NOT_IN_A_CLAN;
 import static org.elmedievo.medievo.util.Generic.NO_CONSOLE;
@@ -29,16 +30,16 @@ public class team implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("team")) {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
-                if (!Objects.requireNonNull(PlayerClanGetter.getPlayerClan(player.getUniqueId())).equals("none")) {
+                if (!Objects.requireNonNull(getPlayerClan(player.getUniqueId())).equals("none")) {
                     if (args.length == 0) {
-                        if (!ChatQueue.clanChatEnabled(player)) {
-                            ChatQueue.setPlayerChatMode(player, "clan");
+                        if (!clanChatEnabled(player)) {
+                            setPlayerChatMode(player, "clan");
                         } else {
                             sender.sendMessage(ALREADY_IN_CLAN_CHAT);
                         }
                     } else {
                         String msg = buildMessageFromCommandArgs(args, 0);
-                        SendClanMessage.sendMessageInClanChat(player, msg);
+                        sendMessageInClanChat(player, msg);
                     }
                 } else {
                     sender.sendMessage(NOT_IN_A_CLAN);
