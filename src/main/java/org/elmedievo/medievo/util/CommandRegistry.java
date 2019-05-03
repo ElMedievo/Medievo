@@ -1,35 +1,34 @@
 package org.elmedievo.medievo.util;
 
-import org.elmedievo.medievo.Commands.Chat.admin;
-import org.elmedievo.medievo.Commands.Chat.global;
-import org.elmedievo.medievo.Commands.Chat.team;
-import org.elmedievo.medievo.Commands.Clans.accept;
-import org.elmedievo.medievo.Commands.Clans.clan;
-import org.elmedievo.medievo.Commands.Clans.decline;
-import org.elmedievo.medievo.Commands.Coords;
-import org.elmedievo.medievo.Commands.Ranks.rank;
-
+import static org.elmedievo.medievo.Commands.Chat.admin.registerAdminCommand;
+import static org.elmedievo.medievo.Commands.Chat.global.registerGlobalCommand;
+import static org.elmedievo.medievo.Commands.Chat.team.registerTeamCommand;
+import static org.elmedievo.medievo.Commands.Clans.accept.registerAcceptCommand;
+import static org.elmedievo.medievo.Commands.Clans.clan.registerClanCommand;
 import static org.elmedievo.medievo.Commands.Clans.clans.registerClansCommand;
+import static org.elmedievo.medievo.Commands.Clans.decline.registerDeclineCommand;
 import static org.elmedievo.medievo.Commands.Clans.materials.registerMaterialsCommand;
+import static org.elmedievo.medievo.Commands.Coords.registerCoordsCommand;
+import static org.elmedievo.medievo.Commands.Ranks.rank.registerRankCommand;
 import static org.elmedievo.medievo.Commands.ReloadConfig.registerReloadConfigCommand;
 import static org.elmedievo.medievo.Commands.Stats.registerStatsCommand;
 
 public class CommandRegistry {
     public static void registerCommands() {
-            Coords.registerCoordsCommand();
-            rank.registerRankCommand();
-            clan.registerClanCommand();
-            accept.registerAcceptCommand();
-            decline.registerDeclineCommand();
+            registerCoordsCommand();
+            registerRankCommand();
+            registerClanCommand();
+            registerAcceptCommand();
+            registerDeclineCommand();
             registerReloadConfigCommand();
             registerClansCommand();
             registerStatsCommand();
             registerMaterialsCommand(); // Temp command until tab completion implementation.
 
             //--- Chat Commands ---//
-            admin.registerAdminCommand();
-            global.registerGlobalCommand();
-            team.registerTeamCommand();
+            registerAdminCommand();
+            registerGlobalCommand();
+            registerTeamCommand();
             //---              ---//
     }
 }
