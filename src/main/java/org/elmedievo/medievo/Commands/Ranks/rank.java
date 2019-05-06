@@ -1,5 +1,6 @@
 package org.elmedievo.medievo.Commands.Ranks;
 
+import org.elmedievo.medievo.Commands.TabComplete.RanksTabComplete;
 import org.elmedievo.medievo.Medievo;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -72,5 +73,6 @@ public class rank implements CommandExecutor {
 
     public static void registerRankCommand() {
         Medievo.instance.getCommand("rank").setExecutor(new rank(Medievo.instance));
+        Medievo.instance.getCommand("rank").setTabCompleter(new RanksTabComplete(Medievo.instance));
     }
 }
