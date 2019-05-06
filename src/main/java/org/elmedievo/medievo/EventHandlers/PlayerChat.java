@@ -7,10 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import static org.elmedievo.medievo.Commands.Chat.Methods.SendAdminMessage.sendMessageInAdminChat;
-import static org.elmedievo.medievo.Commands.Chat.Methods.SendClanMessage.sendMessageInClanChat;
-import static org.elmedievo.medievo.Commands.Chat.Methods.SendGlobalMessage.sendMessageInGlobal;
-import static org.elmedievo.medievo.Queues.Methods.ChatQueue.getPlayerChatMode;
+import static org.elmedievo.medievo.Commands.Chat.Methods.SendMessageInPlayerChat.SendMessageToCorrespondingChat;
 
 public class PlayerChat implements Listener {
 
@@ -24,20 +21,8 @@ public class PlayerChat implements Listener {
     public static void onPlayerChat(AsyncPlayerChatEvent event) {
         event.setCancelled(true);
         Player player = event.getPlayer();
-        String player_name = event.getPlayer().getName();
         String msg = event.getMessage();
-        String chatMode = getPlayerChatMode(player_name);
-
-        switch (chatMode) {
-            case "admin":
-                sendMessageInAdminChat(player, msg);
-                break;
-            case "global":
-                sendMessageInGlobal(player, msg);
-                break;
-            case "clan":
-                sendMessageInClanChat(player, msg);
-        }
+        SendMessageToCorrespondingChat(player, msg);
     }
 
     public static void registerPlayerChatEvent() {

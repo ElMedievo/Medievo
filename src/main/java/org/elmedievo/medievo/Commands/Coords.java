@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 
+import static org.elmedievo.medievo.Commands.Chat.Methods.SendMessageInPlayerChat.SendMessageToCorrespondingChat;
 import static org.elmedievo.medievo.util.Generic.NO_CONSOLE;
 import static org.elmedievo.medievo.util.Methods.ConjoinCommandArgs.buildMessageFromCommandArgs;
 
@@ -21,13 +22,13 @@ public class Coords implements CommandExecutor {
         plugin = instance;
     }
 
-    private void broadcastPlayerCoords(Player player, @Nullable String message) {
+    private String PlayerCoordsToChatMessage(Player player, @Nullable String message) {
         Location player_location = player.getLocation();
         int x = player_location.getBlockX();
         int y = player_location.getBlockY();
         int z = player_location.getBlockZ();
-        Bukkit.broadcastMessage(
-                ChatColor.YELLOW + "" + ChatColor.BOLD + player.getDisplayName() + ChatColor.GRAY + ": " + ChatColor.WHITE + message + "\n"
+        return (
+                message + "\n"
                 + ChatColor.YELLOW + "X: " + ChatColor.GRAY + x + "\n"
                 + ChatColor.YELLOW + "Y: " + ChatColor.GRAY + y + "\n"
                 + ChatColor.YELLOW + "Z: " + ChatColor.GRAY + z
@@ -39,10 +40,12 @@ public class Coords implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("coordinates") && sender instanceof Player) {
             Player player = (Player) sender;
             if (args.length == 0) {
-                broadcastPlayerCoords(player, "");
+                String coords = PlayerCoordsToChatMessage(player, "");
+                SendMessageToCorrespondingChat(player, coords);
             } else {
                 String msg = buildMessageFromCommandArgs(args, 0);
-                broadcastPlayerCoords(player, msg);
+                String coords = PlayerCoordsToChatMessage(player, msg);
+                SendMessageToCorrespondingChat(player, coords);
             }
         } else {
             sender.sendMessage(NO_CONSOLE);
