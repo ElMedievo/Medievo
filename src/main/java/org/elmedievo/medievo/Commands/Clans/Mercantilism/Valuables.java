@@ -8,10 +8,8 @@ public class Valuables {
     public static String CURRENCY_NAME = "Alfonso";
     public static String CURRENCY_NAME_PLURAL = "Alfonsos";
 
-    public static int valueInMarket(Material material, Boolean forDeposit) {
-        int GOLD_VALUE = (forDeposit) ? 45 : -45;
-        int STICK_VALUE = (forDeposit) ? 10 : -10;
-        int APPLE_VALUE = (forDeposit) ? 15 : -15;
+    public static float valueInMarket(Material material, Boolean forDeposit) {
+        float GOLD_VALUE = (forDeposit) ? 1.0f : -1.0f;
 
         switch (material) {
             case GOLD_INGOT:
@@ -19,15 +17,15 @@ public class Valuables {
             case GOLD_BLOCK:
                 return 9 * GOLD_VALUE;
             case GOLD_SWORD:
-                return 2 * GOLD_VALUE + STICK_VALUE;
+                return 2 * GOLD_VALUE;
             case GOLD_SPADE:
-                return GOLD_VALUE + 2 * STICK_VALUE;
+                return GOLD_VALUE;
             case GOLD_PICKAXE:
-                return 3 * GOLD_VALUE + 2 * STICK_VALUE;
+                return 3 * GOLD_VALUE;
             case GOLD_AXE:
-                return 3 * GOLD_VALUE + 2 * STICK_VALUE;
+                return 3 * GOLD_VALUE;
             case GOLD_HOE:
-                return 2 * GOLD_VALUE + 2 * STICK_VALUE;
+                return 2 * GOLD_VALUE;
             case GOLD_HELMET:
                 return 5 * GOLD_VALUE;
             case GOLD_CHESTPLATE:
@@ -37,7 +35,7 @@ public class Valuables {
             case GOLD_BOOTS:
                 return 4 * GOLD_VALUE;
             case GOLDEN_APPLE:
-                return 8 * GOLD_VALUE + APPLE_VALUE;
+                return 8 * GOLD_VALUE;
             case GOLD_NUGGET:
                 return GOLD_VALUE / 9;
             case GOLDEN_CARROT:

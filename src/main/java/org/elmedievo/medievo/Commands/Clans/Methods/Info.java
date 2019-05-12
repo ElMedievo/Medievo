@@ -61,7 +61,7 @@ public class Info {
                             + ChatColor.GRAY + "Clan Name: " + ChatColor.GREEN + getPlayerClan(clan_leaderUUID) + "\n"
                             + ChatColor.GRAY + "Clan Leader: " + ChatColor.DARK_AQUA + clan_leader + "\n"
                             + ChatColor.GRAY + "Clan Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(clan) + "\n"
-                            + ChatColor.GRAY + "Members: " + ChatColor.WHITE + "(" + ChatColor.AQUA + getClanMembersList(clan).size() + "\n"
+                            + ChatColor.GRAY + "Members: " + ChatColor.WHITE + "(" + ChatColor.AQUA + getClanMembersList(clan).size() + ChatColor.WHITE + ")" + "\n"
                             + displayClanMemberList(clan) + "\n"
                             + ChatColor.RED + "##############################"
                     );

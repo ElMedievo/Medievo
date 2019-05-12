@@ -43,19 +43,19 @@ public class ClansToListGetter {
 
     private static List<String> lookUpRankedClans() throws SQLException {
         List<String> orderedClans = new ArrayList<>();
-        List<Integer> alfonsos = new ArrayList<>();
+        List<Float> alfonsos = new ArrayList<>();
         PreparedStatement alfonsos_statement = plugin.getConnection().prepareStatement("SELECT alfonsos FROM " + plugin.clans_economy_data_table);
         ResultSet alfonsos_results = alfonsos_statement.executeQuery();
 
         while (alfonsos_results.next()) {
-            alfonsos.add(alfonsos_results.getInt("alfonsos"));
+            alfonsos.add(alfonsos_results.getFloat("alfonsos"));
         }
         alfonsos.sort(Collections.reverseOrder());
 
         alfonsos.forEach(alfonso -> {
             try {
                 PreparedStatement clans_statement = plugin.getConnection().prepareStatement("SELECT DISTINCT clan FROM " + plugin.clans_economy_data_table + " WHERE alfonsos=?");
-                clans_statement.setInt(1, alfonso);
+                clans_statement.setDouble(1, alfonso);
                 ResultSet clans_results = clans_statement.executeQuery();
                 while (clans_results.next()) {
                     String clan = clans_results.getString("clan");
@@ -69,7 +69,6 @@ public class ClansToListGetter {
                 exception.printStackTrace();
             }
         });
-
         return orderedClans;
     }
 }

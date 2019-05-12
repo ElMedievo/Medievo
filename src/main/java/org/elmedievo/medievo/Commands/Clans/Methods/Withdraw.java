@@ -6,6 +6,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,6 +44,8 @@ public class Withdraw {
 
     @SuppressWarnings("deprecation")
     public static void withdrawGoldFromClan(Player player, String materialInput, String amountInput) {
+        DecimalFormat decimalFormat = new DecimalFormat("##.##");
+        decimalFormat.setRoundingMode(RoundingMode.UP);
         String playerClan = getPlayerClan(player.getUniqueId());
         if (materialIsValid(materialInput)) {
             if (amountIsValid(amountInput)) {
@@ -49,7 +53,7 @@ public class Withdraw {
                 if (amount > 0) {
                     Material material = Material.getMaterial(materialInput);
 
-                    int alfonsos = valueInMarket(material, false);
+                    double alfonsos = valueInMarket(material, false);
                     if (!Objects.requireNonNull(playerClan).equals("none")) {
                         int materialAmount = getClanMaterialAmount(playerClan, material.toString().toLowerCase());
                         if (materialAmount == 0) {
@@ -64,7 +68,7 @@ public class Withdraw {
                             Objects.requireNonNull(clanMembers).forEach(member -> {
                                 if (playerIsOnline(member)) {
                                     Player member_player = Bukkit.getServer().getPlayer(member);
-                                    member_player.sendMessage(player.getDisplayName() + ChatColor.AQUA + " » " + WITHDRAW_COMPLETE + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + alfonsos * amount + " " + CURRENCY_NAME_PLURAL);
+                                    member_player.sendMessage(player.getDisplayName() + ChatColor.AQUA + " » " + WITHDRAW_COMPLETE + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + decimalFormat.format(alfonsos * amount) + " " + CURRENCY_NAME_PLURAL);
                                 }
                             });
                         } else {

@@ -58,7 +58,7 @@ public class ClanEntry {
         insert.setInt(14, 0);
         insert.setInt(15, 0);
         insert.setInt(16, 0);
-        insert.setInt(17, 0);
+        insert.setFloat(17, 0);
         insert.executeUpdate();
     }
 }

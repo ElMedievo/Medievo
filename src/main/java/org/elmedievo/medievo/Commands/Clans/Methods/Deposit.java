@@ -6,6 +6,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,12 +26,14 @@ import static org.elmedievo.medievo.util.Methods.PlayerIsOnline.playerIsOnline;
 public class Deposit {
     @SuppressWarnings("deprecation")
     public static void depositGoldIntoClan(Player player) {
+        DecimalFormat decimalFormat = new DecimalFormat("##.##");
+        decimalFormat.setRoundingMode(RoundingMode.UP);
         String playerClan = getPlayerClan(player.getUniqueId());
         if (!Objects.requireNonNull(playerClan).equalsIgnoreCase("none")) {
             Material materialInHand = player.getInventory().getItemInMainHand().getType();
             String material = materialInHand.toString().toLowerCase();
             int materialAmount = player.getInventory().getItemInMainHand().getAmount();
-            int alfonsos = valueInMarket(materialInHand, true) * materialAmount;
+            float alfonsos = valueInMarket(materialInHand, true) * materialAmount;
             if (alfonsos == 0) {
                 player.sendMessage(CANNOT_DEPOSIT);
             } else {
@@ -41,7 +45,7 @@ public class Deposit {
                 Objects.requireNonNull(clanMembers).forEach(member -> {
                     if (playerIsOnline(member)) {
                         Player member_player = Bukkit.getServer().getPlayer(member);
-                        member_player.sendMessage(player.getDisplayName()  + ChatColor.AQUA + " » " + DEPOSIT_SUCCESS + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + alfonsos + " " + CURRENCY_NAME_PLURAL);
+                        member_player.sendMessage(player.getDisplayName()  + ChatColor.AQUA + " » " + DEPOSIT_SUCCESS + ChatColor.AQUA + " » " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + decimalFormat.format(alfonsos) + " " + CURRENCY_NAME_PLURAL);
                     }
                 });
             }
