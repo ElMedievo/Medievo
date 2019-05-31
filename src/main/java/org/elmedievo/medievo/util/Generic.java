@@ -26,6 +26,8 @@ public class Generic {
             RANKS_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating ranks.xml file.",
             RANKS_DATA_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating ranks.yml file.",
             RANKS_DATA_CANNOT_SAVE = consoleErrorPrefix + "An internal error has occurred while saving ranks.yml file.",
+            MARKET_DATA_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating market.yml file.",
+            MARKET_DATA_CANNOT_SAVE = consoleErrorPrefix + "An internal error has occurred while saving market.yml file",
             FEATURE_NOT_IMPLEMENTED = chatErrorPrefix + "Feature not implemented yet.",
             GENERIC_SYNTAX_ERROR = chatErrorPrefix + "Syntax error.",
             NO_PENDANT_INVITE = chatErrorPrefix + "You don't have any pendant clan invitation.",
@@ -53,10 +55,12 @@ public class Generic {
             RANKS_FILE_NOT_FOUND = successPrefix + "ranks.xml file not found. Creating one...",
             RANKS_DATA_FILE_FOUND = successPrefix + "Successfully loaded the ranks.yml file.",
             RANKS_DATA_FILE_NOT_FOUND = successPrefix + "ranks.yml file not found. Creating one...",
+            MARKET_DATA_FILE_FOUND = successPrefix + "Successfully loaded the market.yml file",
+            MARKET_DATA_FILE_NOT_FOUND = successPrefix + "market.yml file not found. Creating one...",
             SQL_CONNECT_SUCCESS = successPrefix + "Connected to SQL database successfully.",
             ADMIN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Admin",
             CLAN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Clan",
             GLOBAL_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Global",
-            RELOADED_CONFIG = successPrefix + "Configuration reloaded successfully",
-            DEPOSIT_SUCCESS = successPrefix + "Deposit complete";
+            RELOADED_CONFIG = successPrefix + "Configuration reloaded successfully.",
+            DEPOSIT_SUCCESS = successPrefix + "Deposit complete.";
 }
