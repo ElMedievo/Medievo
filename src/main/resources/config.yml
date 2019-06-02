@@ -2,7 +2,7 @@
 # For a complete automated database setup, have a look over at https://github.com/ElMedievo/Data/tree/master/Database
 # This database.php script helps you set everything up automatically, just run it as specified in the repository's README.md
 clans: false # Once set to true, clans will be enabled on the server.
-central_bank_uuid: ""
+central_bank_uuid: "" # Do not modify unless you know what you are doing.
 sql:
   host: "localhost"
   port: 3306
