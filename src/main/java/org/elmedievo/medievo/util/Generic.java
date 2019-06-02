@@ -46,7 +46,10 @@ public class Generic {
             NOT_ENOUGH_GOLD = chatErrorPrefix + "You don't have enough gold in your bank.",
             WITHDRAW_COMPLETE = chatErrorPrefix + "Withdraw complete.",
             INVALID_AMOUNT = chatErrorPrefix + "Invalid material amount.",
-            INVALID_MATERIAL_TYPE = chatErrorPrefix + "Invalid material.";
+            INVALID_MATERIAL_TYPE = chatErrorPrefix + "Invalid material.",
+            ONLY_LEADER_PURCHASABLE = chatErrorPrefix + "Only the clan leader may purchase from the central market.",
+            NOT_ENOUGH_ALFONSOS = chatErrorPrefix + "You do not have enough alfonsos to purchase this item.",
+            NOT_ENOUGH_GOLD_INGOTS = chatErrorPrefix + "The central bank only accepts gold ingots as payment method. You do not have enough ingots in your bank.";
 
     private static String successPrefix = ChatColor.GREEN + "";
     public static String
@@ -62,5 +65,6 @@ public class Generic {
             CLAN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Clan",
             GLOBAL_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Global",
             RELOADED_CONFIG = successPrefix + "Configuration reloaded successfully.",
-            DEPOSIT_SUCCESS = successPrefix + "Deposit complete.";
+            DEPOSIT_SUCCESS = successPrefix + "Deposit complete.",
+            SUCCESSFULLY_FOUNDED_CENTRAL_BANK = successPrefix + "Central bank was created successfully.";
 }

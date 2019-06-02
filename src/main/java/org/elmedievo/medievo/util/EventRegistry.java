@@ -1,5 +1,7 @@
 package org.elmedievo.medievo.util;
 
+import static org.elmedievo.medievo.Commands.Market.Methods.GUIInteractEvent.registerGUIInteractEvent;
+import static org.elmedievo.medievo.EventHandlers.BlockBreak.registerBlockBreakEvent;
 import static org.elmedievo.medievo.EventHandlers.PlayerChat.registerPlayerChatEvent;
 import static org.elmedievo.medievo.EventHandlers.PlayerDeath.registerPlayerDeathEvent;
 import static org.elmedievo.medievo.EventHandlers.PlayerJoin.registerPlayerJoinEvent;
@@ -13,5 +15,7 @@ public class EventRegistry {
         registerPlayerDisconnectEvent();
         registerWeatherChangeEvent();
         registerPlayerDeathEvent();
+        registerGUIInteractEvent();
+        registerBlockBreakEvent();
     }
 }

@@ -45,6 +45,13 @@ commands:
   materials:
     usage: /materials
     description: Prompts a list of valid bank materials.
+  market:
+    usage: /market
+    description: Opens the market GUI.
+  reloadmarket:
+    usage: /reloadmarket
+    description: Reloads the market.
+    aliases: [rlmarket]
 permissions:
   medievo.rank:
     description: Grants you access to the /rank command.
@@ -57,4 +64,7 @@ permissions:
     default: false
   medievo.reloadconfig:
     description: Allows you to reload the plugin's configuration file.
+    default: op
+  medievo.reloadmarket:
+    description: Allows you to reload the market configuration.
     default: op

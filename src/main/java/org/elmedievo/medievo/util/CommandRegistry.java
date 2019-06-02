@@ -9,6 +9,8 @@ import static org.elmedievo.medievo.Commands.Clans.clans.registerClansCommand;
 import static org.elmedievo.medievo.Commands.Clans.decline.registerDeclineCommand;
 import static org.elmedievo.medievo.Commands.Clans.materials.registerMaterialsCommand;
 import static org.elmedievo.medievo.Commands.Coords.registerCoordsCommand;
+import static org.elmedievo.medievo.Commands.Market.Market.registerMarketCommand;
+import static org.elmedievo.medievo.Commands.Market.ReloadMarket.registerReloadMarketCommand;
 import static org.elmedievo.medievo.Commands.Ranks.rank.registerRankCommand;
 import static org.elmedievo.medievo.Commands.ReloadConfig.registerReloadConfigCommand;
 import static org.elmedievo.medievo.Commands.Stats.registerStatsCommand;
@@ -23,7 +25,9 @@ public class CommandRegistry {
             registerReloadConfigCommand();
             registerClansCommand();
             registerStatsCommand();
-            registerMaterialsCommand(); // Temp command until tab completion implementation.
+            registerMaterialsCommand();
+            registerMarketCommand();
+            registerReloadMarketCommand();
 
             //--- Chat Commands ---//
             registerAdminCommand();

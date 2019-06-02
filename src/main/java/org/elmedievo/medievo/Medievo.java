@@ -3,11 +3,7 @@ package org.elmedievo.medievo;
 import org.elmedievo.medievo.Ranks.CreateRanksData;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.elmedievo.medievo.Configuration.LoadConfig;
 import org.elmedievo.medievo.Queues.CreateQueues;
-import org.elmedievo.medievo.Ranks.CreateRanksFile;
-import org.elmedievo.medievo.util.CommandRegistry;
-import org.elmedievo.medievo.util.EventRegistry;
 import org.elmedievo.medievo.util.Generic;
 import org.elmedievo.medievo.util.Methods.ConsoleAlerts;
 
@@ -15,34 +11,41 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import static org.elmedievo.medievo.Commands.Market.Methods.CreateMarketData.createMarketDataYML;
 import static org.elmedievo.medievo.Commands.TabComplete.Resources.LoadResources.loadTabCompleteArguments;
+import static org.elmedievo.medievo.Configuration.LoadConfig.loadConfig;
+import static org.elmedievo.medievo.EventHandlers.BlockBreak.loadSmelterMaterials;
+import static org.elmedievo.medievo.Queues.CreateQueues.createQueues;
+import static org.elmedievo.medievo.Ranks.CreateRanksData.createRanksDataYML;
+import static org.elmedievo.medievo.Ranks.CreateRanksFile.createRanksXMLFile;
+import static org.elmedievo.medievo.util.CentralBank.generateCentralBank;
+import static org.elmedievo.medievo.util.CommandRegistry.registerCommands;
+import static org.elmedievo.medievo.util.EventRegistry.registerEvents;
 
 public final class Medievo extends JavaPlugin {
 
     public static Medievo instance;
     private CreateRanksData configurationManager;
 
-    public void loadConfigurationManager() {
-        configurationManager = new CreateRanksData();
-        configurationManager.createRanksDataYML();
+    private void loadConfigurationManager() {
+        createRanksDataYML();
+        createMarketDataYML();
     }
 
     @Override
     public void onEnable() {
         instance = this;
         ConsoleAlerts.sendConsoleAlert(ChatColor.GREEN + "-----" + " Medievo " + "-----");
-
-        LoadConfig.loadConfig();
-        CommandRegistry.registerCommands();
+        loadConfig();
+        registerCommands();
         loadTabCompleteArguments();
-        EventRegistry.registerEvents();
-
-        CreateRanksFile.createRanksXMLFile();
+        registerEvents();
+        createRanksXMLFile();
         loadConfigurationManager();
         connectSQLDatabase();
-
-        CreateQueues.createQueues();
-
+        createQueues();
+        loadSmelterMaterials();
+        generateCentralBank();
         ConsoleAlerts.sendConsoleAlert(ChatColor.GREEN + "-------------------");
     }
 
@@ -52,8 +55,8 @@ public final class Medievo extends JavaPlugin {
     }
 
     //---------- SQL Connection Logic ----------//
-    private  Connection connection;
-    private  String host;
+    private Connection connection;
+    private String host;
     private String database;
     private String username;
     private String password;
@@ -66,7 +69,7 @@ public final class Medievo extends JavaPlugin {
         return connection;
     }
 
-    public void setConnection(Connection connection) {
+    private void setConnection(Connection connection) {
         this.connection = connection;
     }
 
