@@ -23,5 +23,10 @@ public class PlayerNameSetter {
         statement.setString(1, name);
         statement.setString(2, uuid.toString());
         statement.executeUpdate();
+
+        PreparedStatement statement1 = plugin.getConnection().prepareStatement("UPDATE " + plugin.clans_data_table + " SET leader_name=? WHERE leader_uuid=?");
+        statement1.setString(1, name);
+        statement1.setString(2, uuid.toString());
+        statement1.executeUpdate();
     }
 }
