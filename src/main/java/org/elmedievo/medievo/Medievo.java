@@ -75,14 +75,14 @@ public final class Medievo extends JavaPlugin {
 
     private void connectSQLDatabase() {
         try {
-            stablishSQLConnection();
+            EstablishSQLConnection();
         } catch (SQLException | ClassNotFoundException exception) {
             exception.printStackTrace();
             ConsoleAlerts.sendConsoleAlert(Generic.SQL_CANNOT_CONNECT);
         }
     }
 
-    private void stablishSQLConnection() throws SQLException, ClassNotFoundException {
+    private void EstablishSQLConnection() throws SQLException, ClassNotFoundException {
         host = getConfig().getString("sql.host");
         port = Integer.parseInt(getConfig().getString("sql.port"));
         database = getConfig().getString("sql.database");
