@@ -11,6 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.elmedievo.medievo.Medievo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.elmedievo.medievo.Commands.Clans.Mercantilism.Valuables.CURRENCY_SYMBOL;
 import static org.elmedievo.medievo.Commands.Market.Methods.CreateMarketData.getMarketData;
@@ -43,11 +44,17 @@ public class GUI implements Listener {
             ItemMeta itemStackInstanceMeta = itemStackInstance.getItemMeta();
             itemStackInstanceMeta.setDisplayName(name);
             if (special) {
-                itemStackInstanceMeta.addEnchant(Enchantment.DIG_SPEED, 5, true);
+                itemStackInstanceMeta.addEnchant(Enchantment.DURABILITY, 3, true);
+            }
+            if (getMarketData().isConfigurationSection("interface.stock." + node + ".enchantments")) {
+                getMarketData().getConfigurationSection("interface.stock." + node + ".enchantments").getKeys(false).forEach(enchantment -> {
+                    Enchantment enchantmentInstance = Enchantment.getByName(enchantment);
+                    int level = getMarketData().getInt(currentNodePath + "enchantments." + enchantment + ".level");
+                    itemStackInstanceMeta.addEnchant(enchantmentInstance, level, true);
+                });
             }
             itemStackInstanceMeta.setLore(instanceItemStackLore);
             itemStackInstance.setItemMeta(itemStackInstanceMeta);
-
             marketInterface.setItem(position, itemStackInstance);
         });
         return marketInterface;
@@ -61,7 +68,14 @@ public class GUI implements Listener {
         ItemMeta purchasedItemMeta = purchasedItem.getItemMeta();
         purchasedItemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', getMarketData().getString("interface.stock." + node + ".name")));
         if (getMarketData().getBoolean("interface.stock." + node + ".special")) {
-            purchasedItemMeta.addEnchant(Enchantment.DIG_SPEED, 5, true);
+            purchasedItemMeta.addEnchant(Enchantment.DURABILITY, 3, true);
+        }
+        if (getMarketData().isConfigurationSection("interface.stock." + node + ".enchantments")) {
+            getMarketData().getConfigurationSection("interface.stock." + node + ".enchantments").getKeys(false).forEach(enchantment -> {
+                Enchantment enchantmentInstance = Enchantment.getByName(enchantment);
+                int level = getMarketData().getInt("interface.stock." + node + ".enchantments." + enchantment + ".level");
+                purchasedItemMeta.addEnchant(enchantmentInstance, level, true);
+            });
         }
         ArrayList<String> purchasedItemLore = new ArrayList<>();
         purchasedItemLore.add(ChatColor.translateAlternateColorCodes('&', getMarketData().getString("interface.stock." + node + ".lore")));

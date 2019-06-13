@@ -62,6 +62,9 @@ public class CreateMarketData {
         getMarketData().set(examplePath + "amount", 3);
         getMarketData().set(examplePath + "name", "&e&lTHE TEST");
         getMarketData().set(examplePath + "lore", "&e&lTEST LORE");
+        getMarketData().set(examplePath + "enchantments", "");
+        getMarketData().set(examplePath + "enchantments.DIG_SPEED", "");
+        getMarketData().set(examplePath + "enchantments.DIG_SPEED.level", 5);
         getMarketData().set(examplePath + "special", false);
         getMarketData().set(examplePath + "position", 13);
         getMarketData().set(examplePath + "price", 500);
