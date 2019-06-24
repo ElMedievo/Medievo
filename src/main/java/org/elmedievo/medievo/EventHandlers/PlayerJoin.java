@@ -1,5 +1,6 @@
 package org.elmedievo.medievo.EventHandlers;
 
+import org.bukkit.event.EventPriority;
 import org.elmedievo.medievo.Medievo;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -25,7 +26,7 @@ public class PlayerJoin implements Listener {
         plugin = instance;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGH)
     public static void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         UUID player_uuid = player.getUniqueId();
