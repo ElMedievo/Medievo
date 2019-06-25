@@ -55,7 +55,7 @@ public class ClanTabComplete implements TabCompleter {
                 } else if (args[0].equalsIgnoreCase("info")) {
                     List<String> clans = getClansList();
                     for (String clan : Objects.requireNonNull(clans)) {
-                        if (clan.startsWith(args[1])) {
+                        if (clan.startsWith(args[1]) && !clan.equalsIgnoreCase("Medieval Bank")) {
                             argumentOptions.add(clan);
                         }
                     }

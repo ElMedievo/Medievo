@@ -27,10 +27,14 @@ public class displayClansList {
         StringBuilder clansListMessage = new StringBuilder();
 
         clansListMessage.append(ChatColor.RED + "##########" + ChatColor.AQUA + ChatColor.BOLD + " CLANS " + ChatColor.RED + "##########" + "\n");
-        Objects.requireNonNull(rankedClans).forEach(clan -> clansListMessage
-                .append(ChatColor.RED + "- " + ChatColor.AQUA + ChatColor.BOLD).append(clan)
-                .append(ChatColor.GRAY).append( " Leader: ").append(evalOnlinePlayer(getClanLeaderName(clan)))
-                .append(ChatColor.GRAY).append(" Balance: ").append(ChatColor.GOLD).append(CURRENCY_SYMBOL).append(getClanAlfonsos(clan)).append("\n"));
+        Objects.requireNonNull(rankedClans).forEach(clan -> {
+            if (!clan.equalsIgnoreCase("Medieval Bank")) {
+                clansListMessage
+                        .append(ChatColor.RED + "- " + ChatColor.AQUA + ChatColor.BOLD).append(clan)
+                        .append(ChatColor.GRAY).append( " Leader: ").append(evalOnlinePlayer(getClanLeaderName(clan)))
+                        .append(ChatColor.GRAY).append(" Balance: ").append(ChatColor.GOLD).append(CURRENCY_SYMBOL).append(getClanAlfonsos(clan)).append("\n");
+            }
+        });
         clansListMessage.append(ChatColor.RED + "###########################");
 
         String finalClansListMessage = clansListMessage.toString();
