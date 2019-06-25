@@ -16,7 +16,7 @@ public class displayClansList {
     public static void sendClansListToPlayer(Player player) {
         List<String> rankedClans = getRankedClansList();
 
-        if (rankedClans.size() == 0) {
+        if (Objects.requireNonNull(rankedClans).size() == 0) {
             player.sendMessage(ChatColor.RED + "##########" + ChatColor.AQUA + ChatColor.BOLD + " CLANS " + ChatColor.RED + "##########" + "\n"
                     + "- " + ChatColor.GOLD + " THERE ARE NO CLANS :(" + "\n"
                     + (ChatColor.RED + "###########################")
