@@ -25,7 +25,6 @@ import static org.elmedievo.medievo.util.EventRegistry.registerEvents;
 public final class Medievo extends JavaPlugin {
 
     public static Medievo instance;
-    private CreateRanksData configurationManager;
 
     private void loadConfigurationManager() {
         createRanksDataYML();
