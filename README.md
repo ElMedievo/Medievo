@@ -9,3 +9,5 @@ Core plugin for the Medieval server.
 As in any other Maven project, simply clone the repository, and launch your command prompt within it upon decompression:
 
   > `mvn clean package`
+
+*This repository has been moved to the new [MedievoNetwork](https://github.com/ElMedievo/MedievoNetwork) repository, and will no longer be supported as standalone as of June the 27th.*
